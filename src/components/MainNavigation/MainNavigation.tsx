@@ -6,7 +6,7 @@ import mainNavigationStyles from "./MainNavigation.styles";
 
 const MainNavigation = () => {
     return (
-        <AppBar component="nav" sx={mainNavigationStyles.root}>
+        <AppBar component="nav" sx={mainNavigationStyles.root} position="sticky">
             <Toolbar sx={mainNavigationStyles.mainContainer}>
                 <Box>
                     <Typography
