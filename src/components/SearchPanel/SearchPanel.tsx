@@ -43,7 +43,7 @@ const SearchPanel = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                        <FormControl variant="outlined">
+                    <FormControl variant="outlined">
                         <Button variant="contained">Search Tour</Button>
                         </FormControl>
                     </Grid>
