@@ -18,7 +18,7 @@ const SearchPanel = () => {
             <Box sx={{ margin: '5%', display:'flex', alignItems:'center' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={3}>
-                        <FormControl fullWidth variant="outlined">
+                    <FormControl fullWidth variant="outlined">
                             <InputLabel>Tour Type</InputLabel>
                             <Select label="Tour Type">
                                 <MenuItem value="hajj">Hajj</MenuItem>
