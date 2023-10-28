@@ -26,13 +26,13 @@ const MainNavigation = () => {
                     </Typography>
                 </Box>
                 <Box>
-                    <Button variant="text" sx={mainNavigationStyles.buttonText} startIcon={<FlightTakeoffIcon sx={mainNavigationStyles.icon} />}>
-                        Add Tour Agency
+                    <Button href="/addAgentDetails" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<FlightTakeoffIcon sx={mainNavigationStyles.icon} />}>
+                       Add Tour Agency
                     </Button>
-                    <Button variant="text" sx={mainNavigationStyles.buttonText} startIcon={<HeadsetMicIcon sx={mainNavigationStyles.icon}/>}>
+                    <Button href="/#" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<HeadsetMicIcon sx={mainNavigationStyles.icon}/>}>
                         Help
                     </Button>
-                    <Button variant="text" sx={mainNavigationStyles.buttonText} startIcon={<PersonIcon sx={mainNavigationStyles.icon}/>}>
+                    <Button href="/#" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<PersonIcon sx={mainNavigationStyles.icon}/>}>
                         Account
                     </Button>
                 </Box>
