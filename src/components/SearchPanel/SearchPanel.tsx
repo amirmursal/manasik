@@ -1,14 +1,8 @@
-import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 import searchPanelStyles from "./SearchPanel.styles";
-import React, { useState } from "react";
+import React from "react";
 
 const SearchPanel = () => {
-
-    const [tourType, setTourType] = useState('hajj');
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setTourType(event.target.value as string);
-    };
 
     return (
         <Box sx={searchPanelStyles.root}>
@@ -18,7 +12,7 @@ const SearchPanel = () => {
             <Box sx={{ margin: '5%', display:'flex', alignItems:'center' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={3}>
-                        <FormControl fullWidth variant="outlined">
+                    <FormControl fullWidth variant="outlined">
                             <InputLabel>Tour Type</InputLabel>
                             <Select label="Tour Type">
                                 <MenuItem value="hajj">Hajj</MenuItem>
@@ -43,7 +37,7 @@ const SearchPanel = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                        <FormControl variant="outlined">
+                    <FormControl variant="outlined">
                         <Button variant="contained">Search Tour</Button>
                         </FormControl>
                     </Grid>
