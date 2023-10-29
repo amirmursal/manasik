@@ -70,7 +70,14 @@ const PersonalDetails = () => {
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
             <Typography sx={personalDetailsStyles.lable} >Address </Typography>
-            <TextField type='text' label='Enter Address' size="small" sx={personalDetailsStyles.text} />
+            <TextField
+          type='text'
+          label='Enter Address'
+          multiline
+          rows={2}
+         
+          sx={personalDetailsStyles.text}
+        />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
@@ -79,8 +86,8 @@ const PersonalDetails = () => {
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.lable} >Phone </Typography>
-            <TextField type='number' label='Enter Phone Number' size="small" sx={personalDetailsStyles.text} />
+            <Typography sx={personalDetailsStyles.lable} >Alternate Mobile </Typography>
+            <TextField type='number' label='Enter Alternate Number' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
