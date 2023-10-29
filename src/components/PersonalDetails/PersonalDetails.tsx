@@ -14,7 +14,6 @@ const PersonalDetails = () => {
 
       <Box sx={{ width: "90%", margin: "auto", display: 'flex', flexDirection: "column", alignItems: 'center' }}>
 
-
         <Grid container rowSpacing={7} columns={{ xs: 1, sm: 4, md: 12 }}  columnSpacing={{ xs: 1, sm: 12, md: 12}}>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>

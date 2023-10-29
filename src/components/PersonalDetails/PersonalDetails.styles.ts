@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-
 const personalDetailsStyles = {
     root:{
         color: '#000',
