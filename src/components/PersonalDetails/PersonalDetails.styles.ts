@@ -1,11 +1,11 @@
+import { Typography } from "@mui/material";
 
 const personalDetailsStyles = {
     root:{
         color: '#000',
-        width:"80%",
+        width:"90%",
         margin:"auto",
         marginTop:"1%",
-
     },
     head:{
         margin:"auto",
@@ -14,12 +14,8 @@ const personalDetailsStyles = {
         justifyContent:"center",
         fontWeight:"600"
     },
-    form:{
-
-    },
     subHead:{
         color: '#000',
-    
         marginTop:"5vh",
         marginBottom:"4vh",
         display:"flex",
@@ -29,16 +25,24 @@ const personalDetailsStyles = {
     input:{
         display:"flex",
         justifyContent:"space-between",
-        alignItems:"center"
-
+        alignItems:"center",
+        '@media (max-width: 480px)': {
+              flexDirection:"column",  
+        },
     },
     text:{
         width:"35vh",
-        margin:"0px",
-
-       
-    }
-
+        margin:"0px", 
+    },
+    lable:{
+        '@media (max-width: 480px)': {
+            width:"35vh",
+      },
+    },
+    divider:{
+        border: "1px solid gainsboro" 
+    },
+   
 }
 
 export default personalDetailsStyles;

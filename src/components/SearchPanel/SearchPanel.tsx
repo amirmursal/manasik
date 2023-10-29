@@ -10,7 +10,7 @@ const SearchPanel = () => {
                 component="div">Find the Best & Reliable HAJJ and UMRAH Tours in India
             </Typography>
             <Box sx={{ margin: '5%', display:'flex', alignItems:'center' }}>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} columns={{xs:1, sm:8, md:12}}>
                     <Grid item xs={3}>
                     <FormControl fullWidth variant="outlined">
                             <InputLabel>Tour Type</InputLabel>
