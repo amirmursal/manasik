@@ -31,13 +31,26 @@ const bankDetailsStyles = {
  
         display:"flex",
         justifyContent:"space-between",
-        alignItems:"center"
+        alignItems:"center",
+
+
+        '@media (max-width: 480px)': {
+            flexDirection:"column",  
+      },
 
     },
     text:{
         width:"35vh",
         margin:"0px"
        
+    },
+
+    typo:{
+
+        '@media (max-width: 480px)': {
+
+            width:"35vh",
+      },
     }
 
 }

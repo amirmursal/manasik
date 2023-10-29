@@ -1,8 +1,9 @@
+import { Typography } from "@mui/material";
 
 const personalDetailsStyles = {
     root:{
         color: '#000',
-        width:"80%",
+        width:"90%",
         margin:"auto",
         marginTop:"1%",
 
@@ -29,15 +30,34 @@ const personalDetailsStyles = {
     input:{
         display:"flex",
         justifyContent:"space-between",
-        alignItems:"center"
+        alignItems:"center",
 
+
+        '@media (max-width: 480px)': {
+              flexDirection:"column",  
+        },
+
+
+     
+       
+      
     },
     text:{
         width:"35vh",
         margin:"0px",
 
        
+    },
+
+    typo:{
+
+        '@media (max-width: 480px)': {
+
+            width:"35vh",
+      },
     }
+
+
 
 }
 
