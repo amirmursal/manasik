@@ -8,7 +8,7 @@ const PersonalDetails = () => {
     <Box sx={personalDetailsStyles.root}>
       <Typography variant="h4" component="div" sx={personalDetailsStyles.head} >Agent Module</Typography>
 
-      <Divider sx={personalDetailsStyles.divider1} />
+      <Divider sx={personalDetailsStyles.divider} />
 
       <Typography variant="h6" component="div" sx={personalDetailsStyles.subHead} >Personal Details</Typography>
 
@@ -18,17 +18,17 @@ const PersonalDetails = () => {
         <Grid container rowSpacing={7} columns={{ xs: 1, sm: 4, md: 12 }}  columnSpacing={{ xs: 1, sm: 12, md: 12}}>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Travels Name </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Travels Name </Typography>
             <TextField type='text' label='Enter Travels Name' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Owner Number </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Owner Number </Typography>
             <TextField type='text' label='Enter Owner Name' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Business Background</Typography>
+            <Typography sx={personalDetailsStyles.lable} >Business Background</Typography>
             <FormControl variant="outlined">
               <InputLabel>Background</InputLabel>
               <Select size="small" label='Background' sx={personalDetailsStyles.text} >
@@ -39,67 +39,67 @@ const PersonalDetails = () => {
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Business Background(Other) </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Business Background(Other) </Typography>
             <TextField type='text' label='Background' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Pincode </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Pincode </Typography>
             <TextField type='number' label='Enter Pincode' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Country </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Country </Typography>
             <TextField type='text' label='Enter Country Name' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >State </Typography>
+            <Typography sx={personalDetailsStyles.lable} >State </Typography>
             <TextField type='text' label='Enter State' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >District </Typography>
+            <Typography sx={personalDetailsStyles.lable} >District </Typography>
             <TextField type='text' label='Enter District' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >City </Typography>
+            <Typography sx={personalDetailsStyles.lable} >City </Typography>
             <TextField type='text' label='Enter City' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Address </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Address </Typography>
             <TextField type='text' label='Enter Address' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Mobile </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Mobile </Typography>
             <TextField type='number' label='Enter Mobile Number' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Phone </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Phone </Typography>
             <TextField type='number' label='Enter Phone Number' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Email Id </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Email Id </Typography>
             <TextField type='email' label='Enter Email id' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Alternate Email Id </Typography>
+            <Typography sx={personalDetailsStyles.lable} >Alternate Email Id </Typography>
             <TextField type='email' label='Enter Alt. Email id' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >Pan</Typography>
+            <Typography sx={personalDetailsStyles.lable} >Pan</Typography>
             <TextField type='text' label='Enter Pan Number' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >MSME</Typography>
+            <Typography sx={personalDetailsStyles.lable} >MSME</Typography>
             <FormControl variant="outlined">
               <InputLabel>select</InputLabel>
               <Select size="small" label='select' sx={personalDetailsStyles.text} >
@@ -110,7 +110,7 @@ const PersonalDetails = () => {
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.typo} >MSME Number</Typography>
+            <Typography sx={personalDetailsStyles.lable} >MSME Number</Typography>
             <TextField type='number' label='Enter MSME Number' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
@@ -123,7 +123,7 @@ const PersonalDetails = () => {
 
       </Box>
 
-      <Divider sx={personalDetailsStyles.divider2} />
+      <Divider sx={personalDetailsStyles.divider} />
     </Box>
   );
 }

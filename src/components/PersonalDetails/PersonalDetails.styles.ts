@@ -34,17 +34,15 @@ const personalDetailsStyles = {
         width:"35vh",
         margin:"0px", 
     },
-    typo:{
+    lable:{
         '@media (max-width: 480px)': {
             width:"35vh",
       },
     },
-    divider1:{
-        border: "2px solid gainsboro" 
+    divider:{
+        border: "1px solid gainsboro" 
     },
-    divider2:{
-        border: "0.5px solid gainsboro" 
-    }
+   
 }
 
 export default personalDetailsStyles;
