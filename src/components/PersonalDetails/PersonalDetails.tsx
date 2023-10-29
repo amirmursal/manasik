@@ -1,6 +1,6 @@
 import React from 'react';
 import personalDetailsStyles from "./PersonalDetails.styles";
-import { Box, Button, FormControl, TextField, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { Box, Button, FormControl, TextField, Grid, Divider, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 
 
 const PersonalDetails = () => {
@@ -8,7 +8,7 @@ const PersonalDetails = () => {
     <Box sx={personalDetailsStyles.root}>
       <Typography variant="h4" component="div" sx={personalDetailsStyles.head} >Agent Module</Typography>
 
-      <hr style={{ border: "2px solid gainsboro" }} />
+      <Divider sx={personalDetailsStyles.divider1} />
 
       <Typography variant="h6" component="div" sx={personalDetailsStyles.subHead} >Personal Details</Typography>
 
@@ -123,7 +123,7 @@ const PersonalDetails = () => {
 
       </Box>
 
-      <hr style={{ border: "0.5px solid gainsboro" }} />
+      <Divider sx={personalDetailsStyles.divider2} />
     </Box>
   );
 }
