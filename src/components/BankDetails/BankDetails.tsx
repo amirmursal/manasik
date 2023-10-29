@@ -24,24 +24,24 @@ const BankDetails = () => {
         Bank Details</Typography>
 
       <Box sx={{ width: "90%", margin: "auto", display: 'flex', flexDirection: "column", alignItems: 'center' }}>
-        <Grid container rowSpacing={7} columns={{ xs: 1, sm: 4, md: 12 }}  columnSpacing={{ xs: 1, sm: 12, md: 12 }} >
+        <Grid container rowSpacing={7} columns={{ xs: 1, sm: 4, md: 12,  }}  columnSpacing={{ xs: 1, sm: 12, md: 12 }} >
 
-          <Grid item xs={6} sx={bankDetailsStyles.input}>
+          <Grid item xs={6}  sx={bankDetailsStyles.input}>
             <Typography sx={bankDetailsStyles.typo} >Bank Name </Typography>
             <TextField type='text' label='' size="small" sx={bankDetailsStyles.text} />
           </Grid>
 
-          <Grid item xs={6} sx={bankDetailsStyles.input}>
+          <Grid item xs={6}  sx={bankDetailsStyles.input}>
             <Typography sx={bankDetailsStyles.typo} >Account Number </Typography>
             <TextField type='text' label='' size="small" sx={bankDetailsStyles.text} />
           </Grid>
 
-          <Grid item xs={6} sx={bankDetailsStyles.input}>
+          <Grid item xs={6}  sx={bankDetailsStyles.input}>
             <Typography sx={bankDetailsStyles.typo} >Benificiary Name </Typography>
             <TextField type='text' label='' size="small" sx={bankDetailsStyles.text} />
           </Grid>
 
-          <Grid item xs={6} sx={bankDetailsStyles.input}>
+          <Grid item xs={6}  sx={bankDetailsStyles.input}>
             <Typography sx={bankDetailsStyles.typo} >Bank Account Type   </Typography>
             <Select size="small" sx={bankDetailsStyles.text} >
               <MenuItem value="pune">Saving</MenuItem>
@@ -50,7 +50,7 @@ const BankDetails = () => {
 
           </Grid>
 
-          <Grid item xs={6} sx={bankDetailsStyles.input}>
+          <Grid item xs={6}  sx={bankDetailsStyles.input}>
             <Typography sx={bankDetailsStyles.typo} >Bank Account identfier (IFSC) </Typography>
             <TextField type='text' label='' size="small" sx={bankDetailsStyles.text} />
           </Grid>
