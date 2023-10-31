@@ -206,13 +206,13 @@ const PersonalDetails = () => {
             <TextField type='number' label='Last Modified By' size="small" sx={personalDetailsStyles.text} />
           </Grid>
 
-      
+          </Grid>
 
-        <Grid marginTop="5%" marginBottom="1%" display='flex' gap="5px"  >
+        <Grid marginTop="5%" marginBottom="1%"  >
           <Button href="/addAgentBankDetails" variant="contained">Next Page</Button>
         </Grid>
 
-      </Grid>
+  
 
       </Box>
 

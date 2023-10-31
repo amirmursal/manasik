@@ -4,6 +4,7 @@ import BankDetails from './components/BankDetails';
 import PersonalDetails from './components/PersonalDetails';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import AddProgram from './components/AddProgram';
 
 const App = () => {
   return (
@@ -12,8 +13,10 @@ const App = () => {
         <Route index element={<SearchPanel />} />
         <Route path="addAgentDetails" element={<PersonalDetails />} />
         <Route path="addAgentBankDetails" element={<BankDetails />} />
+        <Route path="addProgram" element={<AddProgram />} />
       </Route>
     </Routes>
+    
   );
 }
 
