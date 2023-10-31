@@ -9,11 +9,7 @@ const datePickerStyles = {
 
     },
     pop:{
-        width:"300px",
-     
-          '& .MuiPickersMonth-monthTitle': {
-            color: 'red',
-          },
+      width:"400px",
     }
 }
 
