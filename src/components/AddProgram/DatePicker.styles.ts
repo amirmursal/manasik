@@ -1,5 +1,6 @@
 const datePickerStyles = {
     button:{
+      textTransform: 'capitalize',
         color:"black",
         width:"100%",
         fontSize:"25px",

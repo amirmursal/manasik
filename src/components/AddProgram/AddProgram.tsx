@@ -2,6 +2,9 @@ import React from 'react';
 import AddProgramStyles from "./AddProgram.styles";
 import PickerWithButtonField from "./DatePicker"
 import { Box, Button, TextField, InputLabel,FormControl,Divider, Grid, MenuItem, Select, Typography } from "@mui/material";
+import { green } from '@mui/material/colors';
+import Icon from '@mui/material/Icon';
+import CreateIcon from '@mui/icons-material/Create';
 
 const AddProgram = () => {
   return (
@@ -15,77 +18,93 @@ const AddProgram = () => {
       <Box sx={{ margin: '0% 5% 5% 0%', display:'flex', alignItems:'center',height:"100px", width:"100%", borderRadius:"20px", border:"2px solid rgb(113, 176, 71)" }}>
                 <Grid container  columns={{xs:1, sm:8, md:12}}>
                     <Grid item xs={3}>
-                    <FormControl fullWidth variant="outlined"  >
-                            <InputLabel style={{fontSize:"30px", color:"black"}} >Program Type</InputLabel>
-                            <Select label="Tour Type" sx={AddProgramStyles.selector} >
-                                <MenuItem value="hajj">Hajj</MenuItem>
-                                <MenuItem value="umrah">Umrah</MenuItem>
+                      <FormControl fullWidth variant="outlined"  >
+                            <InputLabel  sx={AddProgramStyles.label} >Program Type</InputLabel>
+                            <Select  sx={AddProgramStyles.selector} >
+                                <MenuItem   style={{ fontSize: '30px' }} value="hajj">Hajj</MenuItem>
+                                <MenuItem   style={{ fontSize: '30px' }} value="umrah">Umrah</MenuItem>
                             </Select>
-                        </FormControl>
+                      </FormControl>
                     </Grid>
+
                     <Grid item xs={3}>
                         <PickerWithButtonField/>
                     </Grid>
-                    <Grid item xs={3}>
-                        <FormControl fullWidth variant="outlined">
-                            <InputLabel>City</InputLabel>
-                            <Select label="City">
-                                <MenuItem value="pune">Pune</MenuItem>
-                            </Select>
-                        </FormControl>
+
+                    <Grid item xs={6} sx={AddProgramStyles.seats} >
+                          <Typography variant='h6' style={{fontWeight:"600", fontSize:"25px"}} >Max Seats Count</Typography>
+                          <TextField type='number'  size="small" style={{width:"200px"}} />
+                          <Icon sx={{ backgroundColor: green[500], borderRadius:"40px",color:"white", width:"50px", height:"50px", fontSize:"39px" }}>+</Icon>
                     </Grid>
-                    <Grid item xs={3}>
-                    <FormControl variant="outlined">
-                        <Button variant="contained">Search Tour</Button>
-                        </FormControl>
-                    </Grid>
+                
                 </Grid>
         </Box>
 
 
 
-      <Box sx={{ width: "90%", margin: "auto", display: 'flex', flexDirection: "column", alignItems: 'center' }}>
-        <Grid container rowSpacing={7} columns={{ xs: 1, sm: 4, md: 12,  }}  columnSpacing={{ xs: 1, sm: 12, md: 12 }} >
+      <Box sx={AddProgramStyles.table} >
+        
+          <table>
+            <thead>
+           
+              <tr>
+                <th style={{backgroundColor:"white"}}></th>
+                <th>Pogram Type</th>
+                <th>Travel Date</th>
+                <th>Pogram Status</th>
+                <th>Max Seat Count</th>
+                <th>Seat Booked</th>
+                <th>Seat Available</th>
+                <th style={{backgroundColor:"white"}} ></th>
+              </tr>
+            </thead>
+            <tbody>
+          
+              <tr>
+                <td><CreateIcon /></td>
+                <td>UMRAH</td>
+                <td>30-Sep-2023</td>
+                <td>Ready for Travel</td>
+                <td>50</td>
+                <td>50</td>
+                <td>o</td>
+                <td>✕</td>
+              </tr>
+              <tr>
+                <td><CreateIcon /></td>
+                <td>HAJJ</td>
+                <td>15-July-2024</td>
+                <td>Booking In Progress</td>
+                <td>200</td>
+                <td>20</td>
+                <td>180</td>
+                <td>✕</td>
+              </tr>
+              <tr>
+                <td><CreateIcon /></td>
+                <td>UMRAH</td>
+                <td>10-Apr-2023</td>
+                <td>Closed</td>
+                <td>50</td>
+                <td>45</td>
+                <td>5</td>
+                <td>✕</td>
+              </tr>
+              <tr>
+                <td><CreateIcon /></td>
+                <td>UMRAH</td>
+                <td>05-May-2023</td>
+                <td>Canceled</td>
+                <td>50</td>
+                <td>45</td>
+                <td>5</td>
+                <td>✕</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <Grid item xs={6}  sx={AddProgramStyles.input}>
-            <Typography sx={AddProgramStyles.lable} >Bank Name </Typography>
-            <TextField type='text' label='Enter Bank Name' size="small" sx={AddProgramStyles.text} />
-          </Grid>
-
-          <Grid item xs={6}  sx={AddProgramStyles.input}>
-            <Typography sx={AddProgramStyles.lable} >Account Number </Typography>
-            <TextField type='text' label='Enter Account Number' size="small" sx={AddProgramStyles.text} />
-          </Grid>
-
-          <Grid item xs={6}  sx={AddProgramStyles.input}>
-            <Typography sx={AddProgramStyles.lable} >Benificiary Name </Typography>
-            <TextField type='text' label='Enter Benificiary Name' size="small" sx={AddProgramStyles.text} />
-          </Grid>
-
-          <Grid item xs={6}  sx={AddProgramStyles.input}>
-            <Typography sx={AddProgramStyles.lable} >Bank Account Type   </Typography>
-            <FormControl variant="outlined">
-              <InputLabel>Account Type</InputLabel>
-            <Select size="small" label='ccount Type' sx={AddProgramStyles.text} >
-              <MenuItem value="pune">Saving</MenuItem>
-              <MenuItem value="pune">Current</MenuItem>
-            </Select>
-          </FormControl>
-
-          </Grid>
-
-          <Grid item xs={6}  sx={AddProgramStyles.input}>
-            <Typography sx={AddProgramStyles.lable} >Bank Account identfier (IFSC) </Typography>
-            <TextField type='text' label='Enter IFSC' size="small" sx={AddProgramStyles.text} />
-          </Grid>
-
-        </Grid>
-        <Grid marginTop="5%" marginBottom="1%" display='flex' gap="5px"  >
-          <Button href='/addAgentDetails' variant="contained"  >Back to Personal Details</Button>
-          <Button variant="contained">Next Page</Button>
-        </Grid>
       </Box>
-      <Divider sx={AddProgramStyles.divider}  />
+      {/* <Divider sx={AddProgramStyles.divider}  /> */}
     </Box>
   );
 }
