@@ -102,7 +102,7 @@ const AddProgram = () => {
           </table>
 
       </Box>
-      {/* <Divider sx={AddProgramStyles.divider}  /> */}
+      <Divider sx={AddProgramStyles.divider}  />
     </Box>
   );
 }

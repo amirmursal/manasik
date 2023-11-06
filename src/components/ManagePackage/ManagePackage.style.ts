@@ -1,4 +1,4 @@
-const addProgramStyles = {
+const managePackageStyles = {
     root:{
         color: '#000',
         width:"90%",
@@ -49,6 +49,7 @@ const addProgramStyles = {
             fontSize: "20px",
            marginTop:"15px",
            borderRadius:"20px"
+        
       },
     },
     label:{
@@ -69,6 +70,7 @@ const addProgramStyles = {
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
+     
     },
     text:{
         width:"35vh",
@@ -105,6 +107,7 @@ const addProgramStyles = {
         },
         }
     },
+
     icon:{ 
         backgroundColor: "rgb(113, 173, 71)",
         color:"white",
@@ -120,6 +123,7 @@ const addProgramStyles = {
        marginTop:"10px"
         },
      },
+
     table:{ 
        "@media (max-width:500px)":{
             border:"5px solid rgb(212, 226, 205)",
@@ -163,5 +167,6 @@ const addProgramStyles = {
                 color:"rgb(113, 173, 71)",
             },
      },
+   
 }
-export default addProgramStyles;
+export default managePackageStyles;
