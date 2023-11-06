@@ -15,8 +15,8 @@ const AddProgram = () => {
 
       <Typography variant="h6" component="div" sx={AddProgramStyles.subHead} >Add Program</Typography>
 
-      <Box sx={{ margin: '0% 5% 5% 0%', display:'flex', alignItems:'center',height:"100px", width:"100%", borderRadius:"20px", border:"2px solid rgb(113, 176, 71)" }}>
-                <Grid container  columns={{xs:1, sm:8, md:12}}>
+      <Box sx={AddProgramStyles.program}>
+                <Grid container  columns={{xs:1, sm:4, md:12}}>
                     <Grid item xs={3}>
                       <FormControl fullWidth variant="outlined"  >
                             <InputLabel  sx={AddProgramStyles.label} >Program Type</InputLabel>

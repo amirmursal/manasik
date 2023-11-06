@@ -9,5 +9,4 @@ const footerStyles = {
         textAlign: 'center'
       }
 }
-
 export default footerStyles;

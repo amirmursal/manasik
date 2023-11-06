@@ -7,11 +7,9 @@ const datePickerStyles = {
         fontWeight:"600",
         height:"100%",
         border:"1px solid rgb(186, 214, 166)" ,
-
     },
     pop:{
       width:"400px",
     }
 }
-
 export default datePickerStyles;

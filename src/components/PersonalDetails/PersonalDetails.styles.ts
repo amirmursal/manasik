@@ -1,5 +1,3 @@
-import { Typography } from "@mui/material";
-
 const personalDetailsStyles = {
     root:{
         color: '#000',
@@ -43,7 +41,5 @@ const personalDetailsStyles = {
     divider:{
         border: "1px solid gainsboro" 
     },
-   
 }
-
 export default personalDetailsStyles;
