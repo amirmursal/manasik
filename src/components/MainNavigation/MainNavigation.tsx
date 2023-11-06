@@ -4,7 +4,7 @@ import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import mainNavigationStyles from "./MainNavigation.styles";
 import GridViewIcon from '@mui/icons-material/GridView';
-
+import TableRowsIcon from '@mui/icons-material/TableRows';
 
 const MainNavigation = () => {
     return (
@@ -24,7 +24,6 @@ const MainNavigation = () => {
                         sx={mainNavigationStyles.subHeading}
                     >
                         Make Your Pilgrimage Journey Easy
-
                     </Typography>
                 </Box>
                 <Box>
@@ -34,7 +33,9 @@ const MainNavigation = () => {
                     <Button href="/addProgram" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<GridViewIcon sx={mainNavigationStyles.icon} />}>
                        Add Program
                     </Button>
-                 
+                    <Button href="/managePackage" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<TableRowsIcon sx={mainNavigationStyles.icon} />}>
+                    Manage Package
+                    </Button>
                     <Button href="/#" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<HeadsetMicIcon sx={mainNavigationStyles.icon}/>}>
                         Help
                     </Button>
