@@ -12,7 +12,7 @@ const managePackageStyles = {
         justifyContent:"center",
         fontWeight:"600",
     },
-    subHead:{
+    preSubHead:{
         color: 'white',
         fontWeight:"600",
         margin:"0",
@@ -24,7 +24,20 @@ const managePackageStyles = {
         width:"100%",
         border:"1px solid rgb(121, 176, 83)",
         borderRadius:"5px",
-        backgroundColor:"rgb(84, 130, 53)", 
+        backgroundColor:"rgb(84, 129, 53)", 
+    },
+    subHead:{
+        color: 'white',
+        fontWeight:"600",
+        margin:"0",
+        marginBottom:"3px",
+        display:"flex",
+        justifyContent:"center",
+        textAlign: 'center',
+        width:"100%",
+        border:"1px solid rgb(121, 176, 83)",
+        borderRadius:"5px",
+        backgroundColor:"rgb(102, 158, 64)", 
     },
     program:{
         margin: '0% 5% 5% 0%',
@@ -49,7 +62,6 @@ const managePackageStyles = {
             fontSize: "20px",
            marginTop:"15px",
            borderRadius:"20px"
-        
       },
     },
     label:{
@@ -65,6 +77,30 @@ const managePackageStyles = {
             fontWeight:"600",
             paddingTop:"3vh"
       },
+    },
+    fair:{
+        display:"flex",
+        justifyContent:"space-evenly",
+        alignItems:"center",
+        padding:"1vh",
+        border:"1px solid rgb(113, 176, 71)",
+        "& h6":{
+            fontWeight:"600",
+            fontSize:"25px",
+            "@media (max-width:900px)":{
+                fontSize:"20px"
+            },
+        },
+        "@media (max-width:500px)":{
+            display:"flex",
+            flexFlow:"wrap",
+            "& h6":{
+                fontSize:"15px"
+            },
+        "& input":{
+            width:"30%"
+        },
+        }
     },
     input:{
         display:"flex",
