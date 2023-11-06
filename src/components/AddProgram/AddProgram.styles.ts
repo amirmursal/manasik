@@ -36,8 +36,10 @@ const addProgramStyles = {
              border:"2px solid rgb(113, 176, 71)"       
     },
     selector:{
-        borderRadius:" 20px 0px 0px 20px",
-        fontWeight:"700",
+        borderRadius:" 18px 0px 0px 18px",
+      
+        marginTop:"16px",
+        fontWeight:"600",
         fontSize: "30px",
         padding:"1vh 2vh 1vh 10vh",
         '@media (max-width: 900px)': {
@@ -108,12 +110,18 @@ const addProgramStyles = {
 
     icon:{ 
         backgroundColor: "rgb(113, 173, 71)",
+        color:"white",
+        borderRadius:"50%",
+        width:"50px",
+        height:"50px",
+        fontSize:"39px",
+        "@media (max-width:500px)":{
     borderRadius:"5px",
-     color:"white",
       width:"200px",
        height:"40px", 
        fontSize:"30px",
        marginTop:"10px"
+        },
      },
 
     table:{ 
