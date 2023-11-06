@@ -50,7 +50,6 @@ const managePackageStyles = {
     },
     selector:{
         borderRadius:" 18px 0px 0px 18px",
-      
         marginTop:"16px",
         fontWeight:"600",
         fontSize: "30px",
@@ -106,7 +105,6 @@ const managePackageStyles = {
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
-     
     },
     text:{
         width:"35vh",
@@ -143,7 +141,6 @@ const managePackageStyles = {
         },
         }
     },
-
     icon:{ 
         backgroundColor: "rgb(113, 173, 71)",
         color:"white",
@@ -159,7 +156,6 @@ const managePackageStyles = {
        marginTop:"10px"
         },
      },
-
     table:{ 
        "@media (max-width:500px)":{
             border:"5px solid rgb(212, 226, 205)",
@@ -203,6 +199,5 @@ const managePackageStyles = {
                 color:"rgb(113, 173, 71)",
             },
      },
-   
 }
 export default managePackageStyles;
