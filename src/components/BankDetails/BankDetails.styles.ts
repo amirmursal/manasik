@@ -1,4 +1,3 @@
-
 const bankDetailsStyles = {
     root:{
         color: '#000',
@@ -41,8 +40,5 @@ const bankDetailsStyles = {
     divider:{
         border: "1px solid gainsboro" 
     },
-
-
 }
-
 export default bankDetailsStyles;

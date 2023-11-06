@@ -3,6 +3,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import mainNavigationStyles from "./MainNavigation.styles";
+import GridViewIcon from '@mui/icons-material/GridView';
+
 
 const MainNavigation = () => {
     return (
@@ -28,6 +30,9 @@ const MainNavigation = () => {
                 <Box>
                     <Button href="/addAgentDetails" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<FlightTakeoffIcon sx={mainNavigationStyles.icon} />}>
                        Add Tour Agency
+                    </Button>
+                    <Button href="/addProgram" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<GridViewIcon sx={mainNavigationStyles.icon} />}>
+                       Add Program
                     </Button>
                     <Button href="/#" variant="text" sx={mainNavigationStyles.buttonText} startIcon={<HeadsetMicIcon sx={mainNavigationStyles.icon}/>}>
                         Help

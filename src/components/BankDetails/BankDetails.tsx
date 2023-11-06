@@ -60,6 +60,7 @@ const BankDetails = () => {
         </Grid>
         <Grid marginTop="5%" marginBottom="1%" display='flex' gap="5px"  >
           <Button href='/addAgentDetails' variant="contained"  >Back to Personal Details</Button>
+          {/* <Button href="/addProgram" variant="contained">Next Page</Button> */}
           <Button href='/addAgentDocuments' variant="contained">Next Page</Button>
         </Grid>
       </Box>

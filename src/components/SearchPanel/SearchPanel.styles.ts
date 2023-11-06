@@ -1,4 +1,3 @@
-
 const searchPanelStyles = {
     root:{
         color: '#000'

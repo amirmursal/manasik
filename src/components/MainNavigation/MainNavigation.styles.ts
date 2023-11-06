@@ -1,4 +1,3 @@
-
 const mainNavigationStyles ={
     root: {
       background: '#fff', 
@@ -23,6 +22,5 @@ const mainNavigationStyles ={
       color: '#000'
     }
   }
-  
   export default mainNavigationStyles;
   
