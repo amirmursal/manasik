@@ -30,7 +30,7 @@ const addProgramStyles = {
         margin: '0% 5% 5% 0%',
          display:'flex',
           alignItems:'center',
-          height:"100px",
+          height:"fit-content",
            width:"100%",
             borderRadius:"20px",
              border:"2px solid rgb(113, 176, 71)"       
@@ -40,27 +40,42 @@ const addProgramStyles = {
         fontWeight:"700",
         fontSize: "30px",
         padding:"1vh 2vh 1vh 10vh",
+        '@media (max-width: 900px)': {
+            fontSize: "20px",
+      },
+        '@media (max-width: 500px)': {
+            fontSize: "20px",
+           marginTop:"15px",
+           borderRadius:"20px"
+        
+      },
     },
     label:{
         fontWeight:"700",
        fontSize:"25px",
         color:"black",
-        padding:"1vh 2vh 1vh 10vh"
+        padding:"1vh 2vh 1vh 10vh",
+
+        '@media (max-width: 900px)': {
+            fontSize: "20px",
+      },
+        '@media (max-width: 500px)': {
+            fontWeight:"600",
+            paddingTop:"3vh"
+      },
     },
     input:{
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
-        '@media (max-width: 480px)': {
-            flexDirection:"column",  
-      },
+     
     },
     text:{
         width:"35vh",
         margin:"0px"
     },
     lable:{
-        '@media (max-width: 480px)': {
+        '@media (max-width: 900px)': {
             width:"35vh",
       },
     },
@@ -70,14 +85,54 @@ const addProgramStyles = {
     seats:{
         display:"flex",
         justifyContent:"space-evenly",
-        alignItems:"center"
+        alignItems:"center",
+        padding:"1vh",
+        "& h6":{
+            fontWeight:"600",
+            fontSize:"25px",
+            "@media (max-width:900px)":{
+                fontSize:"20px"
+            },
+        },
+        "@media (max-width:500px)":{
+            display:"flex",
+            flexFlow:"wrap",
+            "& h6":{
+                fontSize:"15px"
+            },
+        "& input":{
+            width:"30%"
+        },
+        }
     },
+
+    icon:{ 
+        backgroundColor: "rgb(113, 173, 71)",
+    borderRadius:"5px",
+     color:"white",
+      width:"200px",
+       height:"40px", 
+       fontSize:"30px",
+       marginTop:"10px"
+     },
+
     table:{ 
+       "@media (max-width:500px)":{
+            border:"5px solid rgb(212, 226, 205)",
+            "& td,th":{
+                border:"1px solid white",
+                padding:"0px"
+            },
+       },
+       marginBottom:"10px",
+        overflow:"scroll",
         width: "100%",
             textAlign: 'center',
             "& table":{
-               width:"100%",
+               minWidth:"100%",
+               width:"950px",
                 borderCollapse: "collapse",
+                Margin:"auto"
             },
             "& thead":{
                 backgroundColor:"rgb(113, 173, 71)",
@@ -102,7 +157,8 @@ const addProgramStyles = {
             "& tr > td:first-child":{
                 backgroundColor:"white",
                 color:"rgb(113, 173, 71)",
-            }
-     }
+            },
+     },
+   
 }
 export default addProgramStyles;

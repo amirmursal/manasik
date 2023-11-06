@@ -15,14 +15,15 @@ const AddProgram = () => {
 
       <Typography variant="h6" component="div" sx={AddProgramStyles.subHead} >Add Program</Typography>
 
-      <Box sx={AddProgramStyles.program}>
-                <Grid container  columns={{xs:1, sm:4, md:12}}>
-                    <Grid item xs={3}>
+      <Box  sx={AddProgramStyles.program}>
+                <Grid container rowSpacing={{xs:2}} columns={{xs:1, sm:6, md:12}}>
+
+                    <Grid xs={3}>
                       <FormControl fullWidth variant="outlined"  >
                             <InputLabel  sx={AddProgramStyles.label} >Program Type</InputLabel>
                             <Select  sx={AddProgramStyles.selector} >
-                                <MenuItem   style={{ fontSize: '30px' }} value="hajj">Hajj</MenuItem>
-                                <MenuItem   style={{ fontSize: '30px' }} value="umrah">Umrah</MenuItem>
+                                <MenuItem    value="hajj">Hajj</MenuItem>
+                                <MenuItem    value="umrah">Umrah</MenuItem>
                             </Select>
                       </FormControl>
                     </Grid>
@@ -32,16 +33,13 @@ const AddProgram = () => {
                     </Grid>
 
                     <Grid item xs={6} sx={AddProgramStyles.seats} >
-                          <Typography variant='h6' style={{fontWeight:"600", fontSize:"25px"}} >Max Seats Count</Typography>
+                          <Typography variant='h6'  >Max Seats Count</Typography>
                           <TextField type='number'  size="small" style={{width:"200px"}} />
-                          <Icon sx={{ backgroundColor: green[500], borderRadius:"40px",color:"white", width:"50px", height:"50px", fontSize:"39px" }}>+</Icon>
+                          <Icon sx={AddProgramStyles.icon}>+</Icon>
                     </Grid>
                 
                 </Grid>
         </Box>
-
-
-
       <Box sx={AddProgramStyles.table} >
         
           <table>

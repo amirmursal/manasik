@@ -39,22 +39,6 @@ const PersonalDetails = () => {
           </Grid>
 
           <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.lable} >Business Background</Typography>
-            <FormControl variant="outlined">
-              <InputLabel>Background</InputLabel>
-              <Select size="small" label='Background' sx={personalDetailsStyles.text} >
-                <MenuItem value="pune">Travel Agent</MenuItem>
-                <MenuItem value="pune">Traveler</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item xs={6} sx={personalDetailsStyles.input}>
-            <Typography sx={personalDetailsStyles.lable} >Business Background(Other) </Typography>
-            <TextField type='text' label='Background' size="small" sx={personalDetailsStyles.text} />
-          </Grid>
-
-          <Grid item xs={6} sx={personalDetailsStyles.input}>
             <Typography sx={personalDetailsStyles.lable} >Pincode </Typography>
             <TextField type='number' label='Enter Pincode' size="small" sx={personalDetailsStyles.text} />
           </Grid>
