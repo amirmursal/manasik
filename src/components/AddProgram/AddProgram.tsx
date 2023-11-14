@@ -45,13 +45,13 @@ const AddProgram = () => {
             </FormControl>
           </Grid>
 
-          <Grid item xs={3}>
+          <Grid item xs={3} sx={AddProgramStyles.pad}>
             <PickerWithButtonField />
           </Grid>
 
           <Grid item xs={6} sx={AddProgramStyles.seats}>
             <Typography variant="h6">Max Seats Count</Typography>
-            <TextField type="number" size="small" style={{ width: "200px" }} />
+            <TextField type="number" size="small" />
             <Icon sx={AddProgramStyles.icon}>+</Icon>
           </Grid>
         </Grid>

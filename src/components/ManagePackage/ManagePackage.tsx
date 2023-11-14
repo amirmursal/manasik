@@ -16,6 +16,7 @@ import {
 
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
+import managePackageStyles from "./ManagePackage.style";
 
 const ManagePackage = () => {
   return (
@@ -44,7 +45,7 @@ const ManagePackage = () => {
           columns={{ xs: 1, sm: 4, md: 12 }}
         >
           <Grid xs={10} md={3}>
-            <FormControl fullWidth variant="outlined">
+            <FormControl fullWidth variant="outlined" >
               <InputLabel sx={ManagePackageStyles.label}>
                 Package Type
               </InputLabel>
@@ -62,7 +63,7 @@ const ManagePackage = () => {
 
           <Grid item xs={5} sx={ManagePackageStyles.seats}>
             <Typography variant="h6">Max Seats Count</Typography>
-            <TextField type="number" size="small" style={{ width: "200px" }} />
+            <TextField type="number" size="small" />
             <Icon sx={ManagePackageStyles.icon}>+</Icon>
           </Grid>
         </Grid>
