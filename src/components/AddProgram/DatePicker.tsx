@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { Dayjs } from 'dayjs';
-import Button from '@mui/material/Button';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
-import { UseDateFieldProps } from '@mui/x-date-pickers/DateField';
+import * as React from "react";
+import { Dayjs } from "dayjs";
+import Button from "@mui/material/Button";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker, DatePickerProps } from "@mui/x-date-pickers/DatePicker";
+import { UseDateFieldProps } from "@mui/x-date-pickers/DateField";
 import {
   BaseSingleInputFieldProps,
   DateValidationError,
   FieldSection,
-} from '@mui/x-date-pickers/models';
+} from "@mui/x-date-pickers/models";
 
 import DatePickerStyles from "./DatePicker.styles";
 
@@ -31,7 +31,7 @@ function ButtonField(props: ButtonFieldProps) {
     id,
     disabled,
     InputProps: { ref } = {},
-    inputProps: { 'aria-label': ariaLabel } = {},
+    inputProps: { "aria-label": ariaLabel } = {},
   } = props;
 
   return (
@@ -41,17 +41,16 @@ function ButtonField(props: ButtonFieldProps) {
       disabled={disabled}
       ref={ref}
       aria-label={ariaLabel}
- 
       sx={DatePickerStyles.button}
       onClick={() => setOpen?.((prev) => !prev)}
     >
-      {label ? ` ${label}` : 'Travel Date'}
+      {label ? ` ${label}` : "Travel Date"}
     </Button>
   );
 }
 
 function ButtonDatePicker(
-  props: Omit<DatePickerProps<Dayjs>, 'open' | 'onOpen' | 'onClose'>,
+  props: Omit<DatePickerProps<Dayjs>, "open" | "onOpen" | "onClose">
 ) {
   const [open, setOpen] = React.useState(false);
 
@@ -72,12 +71,11 @@ export default function PickerWithButtonField() {
   const [value, setValue] = React.useState<Dayjs | null>(null);
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs} >
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ButtonDatePicker
-        label={value == null ? null : value.format('MM/DD/YYYY')}
+        label={value == null ? null : value.format("MM/DD/YYYY")}
         value={value}
         onChange={(newValue) => setValue(newValue)}
-        
       />
     </LocalizationProvider>
   );
