@@ -117,7 +117,6 @@ const ManagePackage = () => {
           </tbody>
         </table>
       </Box>
-      {/* <Divider sx={ManagePackageStyles.divider}  /> */}
     </Box>
   );
 };
