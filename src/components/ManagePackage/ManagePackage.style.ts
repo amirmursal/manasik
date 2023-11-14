@@ -1,4 +1,4 @@
-const addProgramStyles = {
+const managePackageStyles = {
     root:{
         color: '#000',
         width:"90%",
@@ -12,7 +12,7 @@ const addProgramStyles = {
         justifyContent:"center",
         fontWeight:"600",
     },
-    subHead:{
+    preSubHead:{
         color: 'white',
         fontWeight:"600",
         margin:"0",
@@ -24,7 +24,20 @@ const addProgramStyles = {
         width:"100%",
         border:"1px solid rgb(121, 176, 83)",
         borderRadius:"5px",
-        backgroundColor:"rgb(84, 130, 53)", 
+        backgroundColor:"rgb(84, 129, 53)", 
+    },
+    subHead:{
+        color: 'white',
+        fontWeight:"600",
+        margin:"0",
+        marginBottom:"3px",
+        display:"flex",
+        justifyContent:"center",
+        textAlign: 'center',
+        width:"100%",
+        border:"1px solid rgb(121, 176, 83)",
+        borderRadius:"5px",
+        backgroundColor:"rgb(102, 158, 64)", 
     },
     program:{
         margin: '0% 5% 5% 0%',
@@ -35,15 +48,8 @@ const addProgramStyles = {
             borderRadius:"20px",
              border:"2px solid rgb(113, 176, 71)"  ,
     },
-
-    formcontrol:{
-        '@media (max-width:500px)' :{
-             width:"95%",
-             marginTop:"3%",
-        },
-    },
     selector:{
-        borderRadius:"18px 0px 0px 18px",
+        borderRadius:" 18px 0px 0px 18px",
         marginTop:"16px",
         fontWeight:"600",
         fontSize: "30px",
@@ -54,7 +60,7 @@ const addProgramStyles = {
         '@media (max-width: 500px)': {
             fontSize: "20px",
            marginTop:"15px",
-           borderRadius:"5px",
+           borderRadius:"20px"
       },
     },
     label:{
@@ -70,6 +76,31 @@ const addProgramStyles = {
             fontWeight:"600",
             paddingTop:"3vh"
       },
+    },
+    fair:{
+        display:"flex",
+        justifyContent:"space-evenly",
+        alignItems:"center",
+        padding:"1vh",
+        // border:"1px solid rgb(113, 176, 71)",
+        "& h6":{
+            fontWeight:"600",
+            fontSize:"25px",
+            "@media (max-width:900px)":{
+                fontSize:"20px"
+            },
+        },
+        "@media (max-width:500px)":{
+            display:"flex",
+            flexFlow:"wrap",
+            "& h6":{
+                fontSize:"15px"
+            },
+        "& input":{
+            width:"10%",
+            padding:"5px 6px"
+        },
+        }
     },
     input:{
         display:"flex",
@@ -101,23 +132,16 @@ const addProgramStyles = {
             },
         },
         "@media (max-width:500px)":{
-            margin:"5%",
             display:"flex",
             flexFlow:"wrap",
-          
             "& h6":{
                 fontSize:"15px"
             },
         "& input":{
-            width:"50px",
+            width:"40px",
             padding:"5px 6px"
         },
         }
-    },
-    pad:{
-        display:"flex",
-        justifyContent:"space-evenly",
-        alignItems:"center",
     },
     icon:{ 
         backgroundColor: "rgb(113, 173, 71)",
@@ -127,10 +151,10 @@ const addProgramStyles = {
         height:"50px",
         fontSize:"39px",
         "@media (max-width:500px)":{
-    borderRadius:"50%",
-      width:"40px",
-       height:"40px", 
-       fontSize:"30px",
+            borderRadius:"50%",
+            width:"40px",
+            height:"40px", 
+            fontSize:"30px",
         },
      },
     table:{ 
@@ -177,4 +201,4 @@ const addProgramStyles = {
             },
      },
 }
-export default addProgramStyles;
+export default managePackageStyles;

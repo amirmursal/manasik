@@ -4,6 +4,7 @@ import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import mainNavigationStyles from "./MainNavigation.styles";
 import GridViewIcon from "@mui/icons-material/GridView";
+import TableRowsIcon from "@mui/icons-material/TableRows";
 
 const MainNavigation = () => {
   return (
@@ -46,6 +47,14 @@ const MainNavigation = () => {
             startIcon={<GridViewIcon sx={mainNavigationStyles.icon} />}
           >
             Add Program
+          </Button>
+          <Button
+            href="/managePackage"
+            variant="text"
+            sx={mainNavigationStyles.buttonText}
+            startIcon={<TableRowsIcon sx={mainNavigationStyles.icon} />}
+          >
+            Manage Package
           </Button>
           <Button
             href="/#"

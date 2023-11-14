@@ -7,6 +7,7 @@ import AddProgram from "./components/AddProgram";
 import AgentDocumentation from "./components/Agent/AgentDocumentation";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
+import ManagePackage from "./components/ManagePackage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="addAgentDetails" element={<PersonalDetails />} />
           <Route path="addProgram" element={<AddProgram />} />
           <Route path="addAgentDocuments" element={<AgentDocumentation />} />
+          <Route path="managePackage" element={<ManagePackage />} />
         </Route>
       </Routes>
     </ThemeProvider>
