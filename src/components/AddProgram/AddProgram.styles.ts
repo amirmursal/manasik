@@ -33,11 +33,17 @@ const addProgramStyles = {
           height:"fit-content",
            width:"100%",
             borderRadius:"20px",
-             border:"2px solid rgb(113, 176, 71)"       
+             border:"2px solid rgb(113, 176, 71)"  ,
+    },
+
+    formcontrol:{
+        '@media (max-width:500px)' :{
+             width:"95%",
+             marginTop:"3%",
+        },
     },
     selector:{
-        borderRadius:" 18px 0px 0px 18px",
-      
+        borderRadius:"18px 0px 0px 18px",
         marginTop:"16px",
         fontWeight:"600",
         fontSize: "30px",
@@ -48,7 +54,7 @@ const addProgramStyles = {
         '@media (max-width: 500px)': {
             fontSize: "20px",
            marginTop:"15px",
-           borderRadius:"20px"
+           borderRadius:"5px",
       },
     },
     label:{
@@ -95,15 +101,23 @@ const addProgramStyles = {
             },
         },
         "@media (max-width:500px)":{
+            margin:"5%",
             display:"flex",
             flexFlow:"wrap",
+          
             "& h6":{
                 fontSize:"15px"
             },
         "& input":{
-            width:"30%"
+            width:"50px",
+            padding:"5px 6px"
         },
         }
+    },
+    pad:{
+        display:"flex",
+        justifyContent:"space-evenly",
+        alignItems:"center",
     },
     icon:{ 
         backgroundColor: "rgb(113, 173, 71)",
@@ -113,11 +127,10 @@ const addProgramStyles = {
         height:"50px",
         fontSize:"39px",
         "@media (max-width:500px)":{
-    borderRadius:"5px",
-      width:"200px",
+    borderRadius:"50%",
+      width:"40px",
        height:"40px", 
        fontSize:"30px",
-       marginTop:"10px"
         },
      },
     table:{ 

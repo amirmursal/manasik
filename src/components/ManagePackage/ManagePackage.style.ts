@@ -46,7 +46,7 @@ const managePackageStyles = {
           height:"fit-content",
            width:"100%",
             borderRadius:"20px",
-             border:"2px solid rgb(113, 176, 71)"       
+             border:"2px solid rgb(113, 176, 71)"  ,
     },
     selector:{
         borderRadius:" 18px 0px 0px 18px",
@@ -82,7 +82,7 @@ const managePackageStyles = {
         justifyContent:"space-evenly",
         alignItems:"center",
         padding:"1vh",
-        border:"1px solid rgb(113, 176, 71)",
+        // border:"1px solid rgb(113, 176, 71)",
         "& h6":{
             fontWeight:"600",
             fontSize:"25px",
@@ -97,7 +97,8 @@ const managePackageStyles = {
                 fontSize:"15px"
             },
         "& input":{
-            width:"30%"
+            width:"10%",
+            padding:"5px 6px"
         },
         }
     },
@@ -137,7 +138,8 @@ const managePackageStyles = {
                 fontSize:"15px"
             },
         "& input":{
-            width:"30%"
+            width:"40px",
+            padding:"5px 6px"
         },
         }
     },
@@ -149,11 +151,10 @@ const managePackageStyles = {
         height:"50px",
         fontSize:"39px",
         "@media (max-width:500px)":{
-    borderRadius:"5px",
-      width:"200px",
-       height:"40px", 
-       fontSize:"30px",
-       marginTop:"10px"
+            borderRadius:"50%",
+            width:"40px",
+            height:"40px", 
+            fontSize:"30px",
         },
      },
     table:{ 
