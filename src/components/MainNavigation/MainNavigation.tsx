@@ -8,7 +8,12 @@ import TableRowsIcon from "@mui/icons-material/TableRows";
 
 const MainNavigation = () => {
   return (
-    <AppBar component="nav" sx={mainNavigationStyles.root} position="sticky">
+    <AppBar
+      component="nav"
+      sx={mainNavigationStyles.root}
+      position="sticky"
+      color="primary"
+    >
       <Toolbar sx={mainNavigationStyles.mainContainer}>
         <Box>
           <Typography
