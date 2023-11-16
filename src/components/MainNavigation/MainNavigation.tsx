@@ -1,12 +1,14 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
-import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
+import Logout from "@mui/icons-material/Logout";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import mainNavigationStyles from "./MainNavigation.styles";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
+import { useAuth } from "../../hooks/useAuth";
 
 const MainNavigation = () => {
+  const { logout }: any = useAuth();
+
   return (
     <AppBar
       component="nav"
@@ -33,7 +35,7 @@ const MainNavigation = () => {
         </Box>
         <Box>
           <Button
-            href="/addAgentDetails"
+            href="/dashboard/addAgentDetails"
             variant="text"
             sx={mainNavigationStyles.buttonText}
             startIcon={<FlightTakeoffIcon sx={mainNavigationStyles.icon} />}
@@ -41,7 +43,7 @@ const MainNavigation = () => {
             Add Tour Agency
           </Button>
           <Button
-            href="/addProgram"
+            href="/dashboard/addProgram"
             variant="text"
             sx={mainNavigationStyles.buttonText}
             startIcon={<GridViewIcon sx={mainNavigationStyles.icon} />}
@@ -49,7 +51,7 @@ const MainNavigation = () => {
             Add Program
           </Button>
           <Button
-            href="/managePackage"
+            href="/dashboard/managePackage"
             variant="text"
             sx={mainNavigationStyles.buttonText}
             startIcon={<TableRowsIcon sx={mainNavigationStyles.icon} />}
@@ -57,20 +59,12 @@ const MainNavigation = () => {
             Manage Package
           </Button>
           <Button
-            href="/#"
+            onClick={logout}
             variant="text"
             sx={mainNavigationStyles.buttonText}
-            startIcon={<HeadsetMicIcon sx={mainNavigationStyles.icon} />}
+            startIcon={<Logout sx={mainNavigationStyles.icon} />}
           >
-            Help
-          </Button>
-          <Button
-            href="/#"
-            variant="text"
-            sx={mainNavigationStyles.buttonText}
-            startIcon={<PersonIcon sx={mainNavigationStyles.icon} />}
-          >
-            Account
+            Logout
           </Button>
         </Box>
       </Toolbar>
