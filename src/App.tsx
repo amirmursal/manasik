@@ -8,12 +8,17 @@ import AgentDocumentation from "./components/Agent/AgentDocumentation";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import ManagePackage from "./components/ManagePackage";
+import AgentLogin from "./components/Agent/AgentLogin";
+import { LoginLayout } from "./components/LoginLayout";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<LoginLayout />}>
+          <Route index element={<AgentLogin />} />
+        </Route>
+        <Route path="/dashboard" element={<Layout />}>
           <Route index element={<SearchPanel />} />
           <Route path="addAgentDetails" element={<PersonalDetails />} />
           <Route path="addProgram" element={<AddProgram />} />

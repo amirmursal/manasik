@@ -18,7 +18,7 @@ const mainNavigationStyles ={
       //color: '#7eb75b'
     },
     buttonText:{
-      color: '#000'
+      color: '#fff'
     }
   }
   export default mainNavigationStyles;
