@@ -13,7 +13,7 @@ const datePickerStyles = {
            
       },
         '@media (max-width: 500px)': {
-            fontSize: "20px",
+            fontSize: "15px",
             padding:"1vh 2vh 1vh 1vh",
             width:"95%",
             margin:"auto"

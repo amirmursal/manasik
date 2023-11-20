@@ -50,7 +50,7 @@ const addProgramStyles = {
             fontSize: "18px",
       },
         '@media (max-width: 500px)': {
-            fontSize: "20px",
+            fontSize: "15px",
            borderRadius:"5px",
       },
     },
@@ -67,7 +67,7 @@ const addProgramStyles = {
             fontSize: "18px",
       },
         '@media (max-width: 500px)': {
-            fontSize: "20px",
+            fontSize: "15px",
       },
     },
     input:{

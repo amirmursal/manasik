@@ -92,6 +92,7 @@ const managePackageStyles = {
         display:"flex",
         justifyContent:"space-evenly",
         alignItems:"center",
+        borderRadius:"5px",
         border:"1px solid rgb(186, 214, 166)" ,
         "& h6":{
             fontWeight:"600",
@@ -101,6 +102,8 @@ const managePackageStyles = {
             },
         },
         "@media (max-width:500px)":{
+            margin:"0 3%",
+            padding:"3% 0",
             display:"flex",
             flexFlow:"wrap",
             "& h6":{
@@ -142,6 +145,7 @@ const managePackageStyles = {
             },
         },
         "@media (max-width:500px)":{
+            padding:"4% 0",
             display:"flex",
             flexFlow:"wrap",
             "& h6":{
