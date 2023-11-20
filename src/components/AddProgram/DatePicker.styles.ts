@@ -3,18 +3,17 @@ const datePickerStyles = {
       textTransform: 'capitalize',
         color:"black",
         width:"100%",
-        fontSize:"25px",
+        fontSize:"20px",
         fontWeight:"600",
         height:"100%",
         border:"1px solid rgb(186, 214, 166)" ,
 
-
-        padding:"1vh 2vh 1vh 10vh",
         '@media (max-width: 900px)': {
-            fontSize: "20px",
+            fontSize: "18px",
+           
       },
         '@media (max-width: 500px)': {
-            fontSize: "20px",
+            fontSize: "15px",
             padding:"1vh 2vh 1vh 1vh",
             width:"95%",
             margin:"auto"

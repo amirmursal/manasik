@@ -30,28 +30,30 @@ const AddProgram = () => {
       </Typography>
 
       <Box sx={AddProgramStyles.program}>
-        <Grid
-          container
-          rowSpacing={{ xs: 2 }}
+        <Grid container
           columns={{ xs: 1, sm: 6, md: 12 }}
         >
-          <Grid xs={3}>
-            <FormControl fullWidth variant="outlined">
+          <Grid xs={3} sx={AddProgramStyles.pad} >
+            <FormControl
+              sx={AddProgramStyles.formcontrol}
+              fullWidth
+              variant="outlined"
+            >
               <InputLabel sx={AddProgramStyles.label}>Program Type</InputLabel>
-              <Select sx={AddProgramStyles.selector}>
+              <Select sx={AddProgramStyles.selector} >
                 <MenuItem value="hajj">Hajj</MenuItem>
                 <MenuItem value="umrah">Umrah</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
-          <Grid item xs={3}>
+          <Grid item xs={3} sx={AddProgramStyles.pad}>
             <PickerWithButtonField />
           </Grid>
 
           <Grid item xs={6} sx={AddProgramStyles.seats}>
             <Typography variant="h6">Max Seats Count</Typography>
-            <TextField type="number" size="small" style={{ width: "200px" }} />
+            <TextField type="number" size="small" />
             <Icon sx={AddProgramStyles.icon}>+</Icon>
           </Grid>
         </Grid>

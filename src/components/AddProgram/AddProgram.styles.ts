@@ -35,40 +35,39 @@ const addProgramStyles = {
             borderRadius:"20px",
              border:"2px solid rgb(113, 176, 71)"  ,
     },
-
     formcontrol:{
         '@media (max-width:500px)' :{
              width:"95%",
-             marginTop:"3%",
+             marginTop:"15px",
+             marginBottom:"15px",
         },
     },
     selector:{
-        borderRadius:"18px 0px 0px 18px",
-        marginTop:"16px",
+        textAlign:"center",
+        fontSize: "20px",
         fontWeight:"600",
-        fontSize: "30px",
-        padding:"1vh 2vh 1vh 10vh",
         '@media (max-width: 900px)': {
-            fontSize: "20px",
+            fontSize: "18px",
       },
         '@media (max-width: 500px)': {
-            fontSize: "20px",
-           marginTop:"15px",
+            fontSize: "15px",
            borderRadius:"5px",
       },
     },
     label:{
-        fontWeight:"700",
-       fontSize:"25px",
+       fontSize: "20px",
+        fontWeight:"600",
+       display:"flex",
+       justifyContent:"center",
+       alignItems:"center",
+       textAlign:"center",
+       width:"100%",
         color:"black",
-        padding:"1vh 2vh 1vh 10vh",
-
         '@media (max-width: 900px)': {
-            fontSize: "20px",
+            fontSize: "18px",
       },
         '@media (max-width: 500px)': {
-            fontWeight:"600",
-            paddingTop:"3vh"
+            fontSize: "15px",
       },
     },
     input:{
@@ -95,9 +94,9 @@ const addProgramStyles = {
         padding:"1vh",
         "& h6":{
             fontWeight:"600",
-            fontSize:"25px",
+            fontSize:"20px",
             "@media (max-width:900px)":{
-                fontSize:"20px"
+                fontSize: "18px",
             },
         },
         "@media (max-width:500px)":{
@@ -141,8 +140,12 @@ const addProgramStyles = {
                 padding:"0px"
             },
        },
+
+       "@media (max-width:1024px)":{
+          overflow:"scroll",
+       },
        marginBottom:"10px",
-        overflow:"scroll",
+     
         width: "100%",
             textAlign: 'center',
             "& table":{

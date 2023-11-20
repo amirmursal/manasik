@@ -16,6 +16,7 @@ import {
 
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
+import managePackageStyles from "./ManagePackage.style";
 
 const ManagePackage = () => {
   return (
@@ -40,29 +41,31 @@ const ManagePackage = () => {
       <Box sx={ManagePackageStyles.program}>
         <Grid
           container
-          rowSpacing={{ xs: 2 }}
-          columns={{ xs: 1, sm: 4, md: 12 }}
+          columns={{ xs: 1, sm: 6 , md: 12 }}
         >
-          <Grid xs={10} md={3}>
-            <FormControl fullWidth variant="outlined">
-              <InputLabel sx={ManagePackageStyles.label}>
-                Package Type
-              </InputLabel>
-              <Select sx={ManagePackageStyles.selector} label="Package Type">
-                <MenuItem value="hajj">Hajj</MenuItem>
-                <MenuItem value="umrah">Umrah</MenuItem>
+          <Grid xs={3} sx={ManagePackageStyles.pad} >
+            <FormControl
+              sx={ManagePackageStyles.formcontrol}
+              fullWidth
+              variant="outlined"
+            >
+              <InputLabel sx={ManagePackageStyles.label}>Package Type</InputLabel>
+              <Select sx={ManagePackageStyles.selector} >
+                <MenuItem value="hajj">Economy</MenuItem>
+                <MenuItem value="umrah">Delux</MenuItem>
+                <MenuItem value="umrah">Super Delux</MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
-          <Grid item xs={4} sx={ManagePackageStyles.fair}>
+          <Grid item xs={3} sx={ManagePackageStyles.fair}>
             <Typography variant="h6">Total Fair</Typography>
             <TextField type="number" size="small" style={{ width: "200px" }} />
           </Grid>
 
-          <Grid item xs={5} sx={ManagePackageStyles.seats}>
+          <Grid item xs={6} sx={ManagePackageStyles.seats}>
             <Typography variant="h6">Max Seats Count</Typography>
-            <TextField type="number" size="small" style={{ width: "200px" }} />
+            <TextField type="number" size="small" />
             <Icon sx={ManagePackageStyles.icon}>+</Icon>
           </Grid>
         </Grid>
