@@ -1,5 +1,5 @@
 import React from "react";
-import ManagePackageStyles from "./ManagePackage.style";
+import ManagePackageStyles from "./ManagePackage.styles";
 
 import {
   Box,
@@ -16,23 +16,16 @@ import {
 
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
-import managePackageStyles from "./ManagePackage.style";
 
 const ManagePackage = () => {
   return (
     <Box sx={ManagePackageStyles.root}>
-      <Typography variant="h4" component="div" sx={ManagePackageStyles.head}>
-        Manage Package
-      </Typography>
-
-      <Divider sx={ManagePackageStyles.divider} />
-
       <Typography
         variant="h6"
         component="div"
         sx={ManagePackageStyles.preSubHead}
       >
-        UMRAH 30-SEP-2023
+        Add Subscription Plan
       </Typography>
       <Typography variant="h6" component="div" sx={ManagePackageStyles.subHead}>
         Add Package
@@ -120,6 +113,7 @@ const ManagePackage = () => {
           </tbody>
         </table>
       </Box>
+      <Divider sx={ManagePackageStyles.divider} />
     </Box>
   );
 };

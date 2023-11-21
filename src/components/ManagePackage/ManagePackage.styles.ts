@@ -5,13 +5,7 @@ const managePackageStyles = {
         margin:"auto",
         marginTop:"1%"
     },
-    head:{
-        margin:"auto",
-        color: 'rgb(84, 130, 53)',
-        display:"flex",
-        justifyContent:"center",
-        fontWeight:"600",
-    },
+   
     preSubHead:{
         color: 'white',
         fontWeight:"600",
@@ -179,8 +173,10 @@ const managePackageStyles = {
                 padding:"0px"
             },
        },
-       marginBottom:"10px",
+       "@media (max-width:1024px)":{
         overflow:"scroll",
+     },
+       marginBottom:"10px",
         width: "100%",
             textAlign: 'center',
             "& table":{

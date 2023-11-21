@@ -4,6 +4,7 @@ import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import mainNavigationStyles from "./MainNavigation.styles";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
+import CardMembershipIcon from '@mui/icons-material/CardMembership';
 import { useAuth } from "../../hooks/useAuth";
 
 const MainNavigation = () => {
@@ -57,6 +58,14 @@ const MainNavigation = () => {
             startIcon={<TableRowsIcon sx={mainNavigationStyles.icon} />}
           >
             Manage Package
+          </Button>
+          <Button
+            href="/dashboard/manageSubscription"
+            variant="text"
+            sx={mainNavigationStyles.buttonText}
+            startIcon={<CardMembershipIcon sx={mainNavigationStyles.icon} />}
+          >
+            Manage Subscription
           </Button>
           <Button
             onClick={logout}

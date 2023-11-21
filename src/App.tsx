@@ -10,6 +10,7 @@ import theme from "./theme";
 import ManagePackage from "./components/ManagePackage";
 import AgentLogin from "./components/Agent/AgentLogin";
 import { LoginLayout } from "./components/LoginLayout";
+import ManageSubscription from "./components/ManageSubscription/ManageSubscription";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="addProgram" element={<AddProgram />} />
           <Route path="addAgentDocuments" element={<AgentDocumentation />} />
           <Route path="managePackage" element={<ManagePackage />} />
+          <Route path="manageSubscription" element={<ManageSubscription />} />
         </Route>
       </Routes>
     </ThemeProvider>
