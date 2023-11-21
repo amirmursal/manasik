@@ -5,6 +5,7 @@ import mainNavigationStyles from "./MainNavigation.styles";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import { useAuth } from "../../hooks/useAuth";
 
 const MainNavigation = () => {
@@ -66,6 +67,14 @@ const MainNavigation = () => {
             startIcon={<CardMembershipIcon sx={mainNavigationStyles.icon} />}
           >
             Manage Subscription
+          </Button>
+          <Button
+            href="/dashboard/planSubscription"
+            variant="text"
+            sx={mainNavigationStyles.buttonText}
+            startIcon={<LoyaltyIcon sx={mainNavigationStyles.icon} />}
+          >
+           Plan Subscription
           </Button>
           <Button
             onClick={logout}
