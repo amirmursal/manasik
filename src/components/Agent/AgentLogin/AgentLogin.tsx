@@ -34,7 +34,7 @@ const AgentLogin = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       <CssBaseline />
       <Box sx={agentLoginStyles.root}>
         <Avatar sx={agentLoginStyles.avatar}>

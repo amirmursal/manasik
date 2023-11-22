@@ -1,9 +1,7 @@
 import React from "react";
 import ManagePackageStyles from "./ManagePackage.styles";
-
 import {
   Box,
-  Button,
   TextField,
   InputLabel,
   FormControl,
@@ -13,7 +11,6 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
 
@@ -32,18 +29,17 @@ const ManagePackage = () => {
       </Typography>
 
       <Box sx={ManagePackageStyles.program}>
-        <Grid
-          container
-          columns={{ xs: 1, sm: 6 , md: 12 }}
-        >
-          <Grid xs={3} sx={ManagePackageStyles.pad} >
+        <Grid container columns={{ xs: 1, sm: 6, md: 12 }}>
+          <Grid xs={3} sx={ManagePackageStyles.pad}>
             <FormControl
               sx={ManagePackageStyles.formcontrol}
               fullWidth
               variant="outlined"
             >
-              <InputLabel sx={ManagePackageStyles.label}>Package Type</InputLabel>
-              <Select sx={ManagePackageStyles.selector} >
+              <InputLabel sx={ManagePackageStyles.label}>
+                Package Type
+              </InputLabel>
+              <Select sx={ManagePackageStyles.selector}>
                 <MenuItem value="hajj">Economy</MenuItem>
                 <MenuItem value="umrah">Delux</MenuItem>
                 <MenuItem value="umrah">Super Delux</MenuItem>

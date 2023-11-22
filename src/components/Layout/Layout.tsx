@@ -26,7 +26,9 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PeopleIcon from "@mui/icons-material/People";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import AddIcon from "@mui/icons-material/Add";
+import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import layoutStyles from "./LayoutStyles";
 
 const drawerWidth: number = 240;
@@ -154,6 +156,22 @@ const Layout = () => {
                 <FlightTakeoffIcon />
               </ListItemIcon>
               <ListItemText primary="Manage Packages" />
+            </ListItemButton>
+          </Tooltip>
+          <Tooltip title="Manage Subscription">
+            <ListItemButton href="/dashboard/manageSubscription">
+              <ListItemIcon>
+                <CardMembershipIcon />
+              </ListItemIcon>
+              <ListItemText primary="Manage Subscription" />
+            </ListItemButton>
+          </Tooltip>
+          <Tooltip title="Plan Subscription">
+            <ListItemButton href="/dashboard/planSubscription">
+              <ListItemIcon>
+                <LoyaltyIcon />
+              </ListItemIcon>
+              <ListItemText primary="Plan Subscription" />
             </ListItemButton>
           </Tooltip>
           <Tooltip title="Logout">

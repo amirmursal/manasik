@@ -12,13 +12,15 @@ import AgentLogin from "./components/Agent/AgentLogin";
 import { LoginLayout } from "./components/LoginLayout";
 import ManageSubscription from "./components/ManageSubscription";
 import PlanSubscription from "./components/PlanSubscription";
+import DefaultLayout from "./components/DefaultLayout";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<LoginLayout />}>
-          <Route index element={<AgentLogin />} />
+          <Route path="/login" element={<AgentLogin />} />
+          <Route index element={<DefaultLayout />} />
         </Route>
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<SearchPanel />} />
