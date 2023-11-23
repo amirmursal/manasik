@@ -13,6 +13,7 @@ import { LoginLayout } from "./components/LoginLayout";
 import ManageSubscription from "./components/ManageSubscription";
 import PlanSubscription from "./components/PlanSubscription";
 import DefaultLayout from "./components/DefaultLayout";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="planSubscription" element={<PlanSubscription />} />
         </Route>
       </Routes>
+      <Footer />
     </ThemeProvider>
   );
 };

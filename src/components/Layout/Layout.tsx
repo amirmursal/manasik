@@ -78,7 +78,11 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const Layout = () => {
-  const { user, logout }: any = useAuth();
+  const {
+    user: { role },
+    logout,
+  }: any = useAuth();
+
   const outlet = useOutlet();
   const [open, setOpen] = useState(false);
 
@@ -86,7 +90,7 @@ const Layout = () => {
     setOpen(!open);
   };
 
-  if (!user) {
+  if (!role) {
     return <Navigate to="/" />;
   }
 
@@ -134,46 +138,50 @@ const Layout = () => {
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </Tooltip>
-          <Tooltip title="Add Tour Agency">
-            <ListItemButton href="/dashboard/addAgentDetails">
-              <ListItemIcon>
-                <AddIcon />
-              </ListItemIcon>
-              <ListItemText primary="Add Tour Agency" />
-            </ListItemButton>
-          </Tooltip>
-          <Tooltip title="Manage Program">
-            <ListItemButton href="/dashboard/addProgram">
-              <ListItemIcon>
-                <PeopleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Manage Program" />
-            </ListItemButton>
-          </Tooltip>
-          <Tooltip title="Manage Packages">
-            <ListItemButton href="/dashboard/managePackage">
-              <ListItemIcon>
-                <FlightTakeoffIcon />
-              </ListItemIcon>
-              <ListItemText primary="Manage Packages" />
-            </ListItemButton>
-          </Tooltip>
-          <Tooltip title="Manage Subscription">
-            <ListItemButton href="/dashboard/manageSubscription">
-              <ListItemIcon>
-                <CardMembershipIcon />
-              </ListItemIcon>
-              <ListItemText primary="Manage Subscription" />
-            </ListItemButton>
-          </Tooltip>
-          <Tooltip title="Plan Subscription">
-            <ListItemButton href="/dashboard/planSubscription">
-              <ListItemIcon>
-                <LoyaltyIcon />
-              </ListItemIcon>
-              <ListItemText primary="Plan Subscription" />
-            </ListItemButton>
-          </Tooltip>
+          {role === "agent" && (
+            <>
+              <Tooltip title="Add Tour Agency">
+                <ListItemButton href="/dashboard/addAgentDetails">
+                  <ListItemIcon>
+                    <AddIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Add Tour Agency" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Manage Program">
+                <ListItemButton href="/dashboard/addProgram">
+                  <ListItemIcon>
+                    <PeopleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Manage Program" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Manage Packages">
+                <ListItemButton href="/dashboard/managePackage">
+                  <ListItemIcon>
+                    <FlightTakeoffIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Manage Packages" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Manage Subscription">
+                <ListItemButton href="/dashboard/manageSubscription">
+                  <ListItemIcon>
+                    <CardMembershipIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Manage Subscription" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Plan Subscription">
+                <ListItemButton href="/dashboard/planSubscription">
+                  <ListItemIcon>
+                    <LoyaltyIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Plan Subscription" />
+                </ListItemButton>
+              </Tooltip>
+            </>
+          )}
           <Tooltip title="Logout">
             <ListItemButton onClick={logout}>
               <ListItemIcon>
