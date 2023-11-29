@@ -28,6 +28,8 @@ import PeopleIcon from "@mui/icons-material/People";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import AddIcon from "@mui/icons-material/Add";
 import layoutStyles from "./LayoutStyles";
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const drawerWidth: number = 240;
 
@@ -154,6 +156,22 @@ const Layout = () => {
                 <FlightTakeoffIcon />
               </ListItemIcon>
               <ListItemText primary="Manage Packages" />
+            </ListItemButton>
+          </Tooltip>
+          <Tooltip title="Manage Offer">
+            <ListItemButton href="/dashboard/manageOffer">
+              <ListItemIcon>
+                <LocalOfferIcon />
+              </ListItemIcon>
+              <ListItemText primary="Manage Offer" />
+            </ListItemButton>
+          </Tooltip>
+          <Tooltip title="Configure Package">
+            <ListItemButton href="/dashboard/configurePackage">
+              <ListItemIcon>
+                <CheckBoxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Configure Package" />
             </ListItemButton>
           </Tooltip>
           <Tooltip title="Logout">
