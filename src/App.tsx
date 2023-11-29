@@ -12,13 +12,18 @@ import AgentLogin from "./components/Agent/AgentLogin";
 import { LoginLayout } from "./components/LoginLayout";
 import ManageOffer from "./components/ManageOffer";
 import ConfigurePackage from "./components/ConfigurePackage";
+import ManageSubscription from "./components/ManageSubscription";
+import PlanSubscription from "./components/PlanSubscription";
+import DefaultLayout from "./components/DefaultLayout";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<LoginLayout />}>
-          <Route index element={<AgentLogin />} />
+          <Route path="/login" element={<AgentLogin />} />
+          <Route index element={<DefaultLayout />} />
         </Route>
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<SearchPanel />} />
@@ -26,11 +31,13 @@ const App = () => {
           <Route path="addProgram" element={<AddProgram />} />
           <Route path="addAgentDocuments" element={<AgentDocumentation />} />
           <Route path="managePackage" element={<ManagePackage />} />
-          <Route path="manageOffer" element={<ManageOffer/>} />
-          <Route path="configurePackage" element={<ConfigurePackage/>} />
-
+          <Route path="manageOffer" element={<ManageOffer />} />
+          <Route path="configurePackage" element={<ConfigurePackage />} />
+          <Route path="manageSubscription" element={<ManageSubscription />} />
+          <Route path="planSubscription" element={<PlanSubscription />} />
         </Route>
       </Routes>
+      <Footer />
     </ThemeProvider>
   );
 };

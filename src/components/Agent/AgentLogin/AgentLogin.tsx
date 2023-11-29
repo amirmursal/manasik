@@ -16,25 +16,39 @@ const AgentLogin = () => {
   const { login }: any = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    login({
-      email,
-      password,
-    });
+    if (email === "agent" && password === "agent") {
+      login({
+        email,
+        password,
+        role: "agent",
+      });
+    } else if (email === "customer" && password === "customer") {
+      login({
+        email,
+        password,
+        role: "customer",
+      });
+    } else {
+      setError(true);
+    }
   };
 
   const handleUserNameChange = (event: any) => {
     setEmail(event?.target.value);
+    setError(false);
   };
 
   const handlePasswordChange = (event: any) => {
     setPassword(event?.target.value);
+    setError(false);
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       <CssBaseline />
       <Box sx={agentLoginStyles.root}>
         <Avatar sx={agentLoginStyles.avatar}>
@@ -66,6 +80,9 @@ const AgentLogin = () => {
             value={password}
             onChange={handlePasswordChange}
           />
+          {error && (
+            <Typography color="error">Please enter valid credential</Typography>
+          )}
           <Button
             type="submit"
             fullWidth
@@ -90,18 +107,6 @@ const AgentLogin = () => {
           </Grid>
         </Box>
       </Box>
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        align="center"
-        sx={agentLoginStyles.copyRight}
-      >
-        {"Copyright © "}
-        <Link color="inherit" href="#">
-          Manasik India Pvt Ltd
-        </Link>{" "}
-        {new Date().getFullYear()}
-      </Typography>
     </Container>
   );
 };

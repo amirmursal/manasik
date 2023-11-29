@@ -12,7 +12,6 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-import { green } from "@mui/material/colors";
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
 
@@ -30,17 +29,15 @@ const AddProgram = () => {
       </Typography>
 
       <Box sx={AddProgramStyles.program}>
-        <Grid container
-          columns={{ xs: 1, sm: 6, md: 12 }}
-        >
-          <Grid xs={3} sx={AddProgramStyles.pad} >
+        <Grid container columns={{ xs: 1, sm: 6, md: 12 }}>
+          <Grid xs={3} sx={AddProgramStyles.pad}>
             <FormControl
               sx={AddProgramStyles.formcontrol}
               fullWidth
               variant="outlined"
             >
               <InputLabel sx={AddProgramStyles.label}>Program Type</InputLabel>
-              <Select sx={AddProgramStyles.selector} >
+              <Select sx={AddProgramStyles.selector}>
                 <MenuItem value="hajj">Hajj</MenuItem>
                 <MenuItem value="umrah">Umrah</MenuItem>
               </Select>

@@ -1,19 +1,7 @@
 import ConfigurePackageStyles from "./ConfigurePackage.style";
-import {
-  Box,
-  Button,
-  TextField,
-  InputLabel,
-  FormControl,
-  Divider,
-  Grid,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import Icon from "@mui/material/Icon";
-import CreateIcon from "@mui/icons-material/Create";
+
 const ConfigurePackage = () => {
   return (
     <Box sx={ConfigurePackageStyles.root}>

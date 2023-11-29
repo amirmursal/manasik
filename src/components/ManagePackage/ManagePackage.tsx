@@ -1,9 +1,7 @@
 import React from "react";
-import ManagePackageStyles from "./ManagePackage.style";
-
+import ManagePackageStyles from "./ManagePackage.styles";
 import {
   Box,
-  Button,
   TextField,
   InputLabel,
   FormControl,
@@ -13,44 +11,35 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-
 import Icon from "@mui/material/Icon";
 import CreateIcon from "@mui/icons-material/Create";
-import managePackageStyles from "./ManagePackage.style";
 
 const ManagePackage = () => {
   return (
     <Box sx={ManagePackageStyles.root}>
-      <Typography variant="h4" component="div" sx={ManagePackageStyles.head}>
-        Manage Package
-      </Typography>
-
-      <Divider sx={ManagePackageStyles.divider} />
-
       <Typography
         variant="h6"
         component="div"
         sx={ManagePackageStyles.preSubHead}
       >
-        UMRAH 30-SEP-2023
+        Add Subscription Plan
       </Typography>
       <Typography variant="h6" component="div" sx={ManagePackageStyles.subHead}>
         Add Package
       </Typography>
 
       <Box sx={ManagePackageStyles.program}>
-        <Grid
-          container
-          columns={{ xs: 1, sm: 6 , md: 12 }}
-        >
-          <Grid xs={3} sx={ManagePackageStyles.pad} >
+        <Grid container columns={{ xs: 1, sm: 6, md: 12 }}>
+          <Grid xs={3} sx={ManagePackageStyles.pad}>
             <FormControl
               sx={ManagePackageStyles.formcontrol}
               fullWidth
               variant="outlined"
             >
-              <InputLabel sx={ManagePackageStyles.label}>Package Type</InputLabel>
-              <Select sx={ManagePackageStyles.selector} >
+              <InputLabel sx={ManagePackageStyles.label}>
+                Package Type
+              </InputLabel>
+              <Select sx={ManagePackageStyles.selector}>
                 <MenuItem value="hajj">Economy</MenuItem>
                 <MenuItem value="umrah">Delux</MenuItem>
                 <MenuItem value="umrah">Super Delux</MenuItem>
@@ -120,6 +109,7 @@ const ManagePackage = () => {
           </tbody>
         </table>
       </Box>
+      <Divider sx={ManagePackageStyles.divider} />
     </Box>
   );
 };
