@@ -59,7 +59,9 @@ const ManageOffer = () => {
           </Grid>
         </Grid>
         <Grid container sx={ManageOfferStyles.button}>
-        <Button variant="contained" color="success" >Submit</Button>
+          <Button variant="contained" color="success">
+            Submit
+          </Button>
         </Grid>
       </Box>
     </Box>

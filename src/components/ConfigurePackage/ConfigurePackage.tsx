@@ -101,11 +101,11 @@ const ConfigurePackage = () => {
             <Checkbox defaultChecked color="success" />
             <Typography>24 Hours Assistance</Typography>
           </Grid>
-
-        
         </Grid>
         <Grid container sx={ConfigurePackageStyles.button}>
-        <Button variant="contained" color="success" >Submit</Button>
+          <Button variant="contained" color="success">
+            Submit
+          </Button>
         </Grid>
       </Box>
     </Box>
