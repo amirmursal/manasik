@@ -30,6 +30,8 @@ import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import AddIcon from "@mui/icons-material/Add";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import layoutStyles from "./LayoutStyles";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 const drawerWidth: number = 240;
 
@@ -138,6 +140,7 @@ const Layout = () => {
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </Tooltip>
+
           {role === "agent" && (
             <>
               <Tooltip title="Add Tour Agency">
@@ -178,6 +181,22 @@ const Layout = () => {
                     <LoyaltyIcon />
                   </ListItemIcon>
                   <ListItemText primary="Plan Subscription" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Manage Offer">
+                <ListItemButton href="/dashboard/manageOffer">
+                  <ListItemIcon>
+                    <LocalOfferIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Manage Offer" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Configure Package">
+                <ListItemButton href="/dashboard/configurePackage">
+                  <ListItemIcon>
+                    <CheckBoxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Configure Package" />
                 </ListItemButton>
               </Tooltip>
             </>
