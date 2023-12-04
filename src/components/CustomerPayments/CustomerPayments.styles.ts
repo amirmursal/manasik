@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 const customerPaymentsStyles = {
   root: {
     color: "#000",
@@ -8,32 +7,15 @@ const customerPaymentsStyles = {
     textAlign: "center",
   },
   subHead: {
-    //     color: "white",
-    //     marginBottom: "3px",
     textAlign: "center",
-
-    //     width: "100%",
-    //     border: "1px solid rgb(121, 176, 83)",
-    //     borderRadius: "5px",
-    //     flexWrap:"wrap",
-    //     "@media (max-width:600px)":{
-    //     justifyContent:"center",
-    //     },
-
     "& > h6": {
-      //         margin:"auto",
       fontWeight: "550",
       fontSize: "17px",
       color: "white",
       padding: "3% 0%",
-      //         width:"20%",
       backgroundColor: "rgb(126, 171, 84)",
-      //         "@media (max-width:740px)":{
-      //             fontSize:"17px",
-      //           },
     },
   },
-
   tableHead: {
     color: "white",
     margin: "0",
@@ -50,7 +32,6 @@ const customerPaymentsStyles = {
       fontWeight: "600",
     },
   },
-
   panel: {
     border: "2px solid green",
     marginBottom: "2%",
@@ -68,7 +49,6 @@ const customerPaymentsStyles = {
       gap: "10px",
       justifyContent: "start",
       alignItems: "center",
-      //     border:"1px solid red",
       flexWrap: "wrap",
     },
   },
@@ -78,7 +58,6 @@ const customerPaymentsStyles = {
       width: "100%",
     },
   },
-
   table: {
     "@media (max-width:500px)": {
       border: "2px solid gray",
