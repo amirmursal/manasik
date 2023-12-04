@@ -32,6 +32,8 @@ import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import layoutStyles from "./LayoutStyles";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 const drawerWidth: number = 240;
 
@@ -197,6 +199,22 @@ const Layout = () => {
                     <CheckBoxIcon />
                   </ListItemIcon>
                   <ListItemText primary="Configure Package" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="My Dashboard">
+                <ListItemButton href="/dashboard/myDashboard">
+                  <ListItemIcon>
+                    <DashboardCustomizeIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="My Dashboard" />
+                </ListItemButton>
+              </Tooltip>
+              <Tooltip title="Customer Payments">
+                <ListItemButton href="/dashboard/customerPayments">
+                  <ListItemIcon>
+                    <PaymentsIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Customer Payments" />
                 </ListItemButton>
               </Tooltip>
             </>

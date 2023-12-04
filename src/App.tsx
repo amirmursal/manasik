@@ -16,6 +16,8 @@ import ManageSubscription from "./components/ManageSubscription";
 import PlanSubscription from "./components/PlanSubscription";
 import DefaultLayout from "./components/DefaultLayout";
 import Footer from "./components/Footer";
+import MyDashboard from "./components/MyDashboard";
+import CustomerPayments from "./components/CustomerPayments";
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="configurePackage" element={<ConfigurePackage />} />
           <Route path="manageSubscription" element={<ManageSubscription />} />
           <Route path="planSubscription" element={<PlanSubscription />} />
+          <Route path="myDashboard" element={<MyDashboard/>} />
+          <Route path="customerPayments" element={<CustomerPayments/>} />
         </Route>
       </Routes>
       <Footer />
