@@ -1,6 +1,6 @@
 const footerStyles = {
   footer: {
-    position: "absolute",
+    position: "static",
     left: "0",
     bottom: "0",
     right: "0",

@@ -38,12 +38,12 @@ const AgentLogin = () => {
   };
 
   const handleUserNameChange = (event: any) => {
-    setEmail(event?.target.value);
+    setEmail(event?.target.value.trim());
     setError(false);
   };
 
   const handlePasswordChange = (event: any) => {
-    setPassword(event?.target.value);
+    setPassword(event?.target.value.trim());
     setError(false);
   };
 
