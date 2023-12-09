@@ -147,9 +147,10 @@ const AddProgram = () => {
           Add Program
         </Button>
       </Box>
+      <br />
       {show && (
         <Grid container spacing={1} sx={addProgramStyles.addProgramForm}>
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 Program Type
@@ -164,12 +165,12 @@ const AddProgram = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={12} sm={6} md={2}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker label="Travel Date" onChange={(newValue) => {}} />
             </LocalizationProvider>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <TextField
               fullWidth
               type="number"
@@ -177,7 +178,7 @@ const AddProgram = () => {
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <IconButton color="primary" onClick={handleAddButtonClick}>
               <AddCircleIcon />
             </IconButton>
