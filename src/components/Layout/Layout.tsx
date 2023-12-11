@@ -1,4 +1,4 @@
-import { Navigate, useOutlet } from "react-router-dom";
+import { Link, Navigate, useOutlet } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
 import {
@@ -32,8 +32,10 @@ import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import layoutStyles from "./LayoutStyles";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import PaymentsIcon from '@mui/icons-material/Payments';
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const drawerWidth: number = 240;
 
@@ -82,10 +84,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const Layout = () => {
-  const {
-    user: { role },
-    logout,
-  }: any = useAuth();
+  const { username } = useSelector((state: RootState) => state.user);
+
+  const { logout }: any = useAuth();
 
   const outlet = useOutlet();
   const [open, setOpen] = useState(false);
@@ -94,8 +95,8 @@ const Layout = () => {
     setOpen(!open);
   };
 
-  if (!role) {
-    return <Navigate to="/" />;
+  if (username?.length === 0) {
+    return <Navigate to="/" replace />;
   }
 
   return (
@@ -135,87 +136,107 @@ const Layout = () => {
         <Divider />
         <List component="nav">
           <Tooltip title="Dashboard">
-            <ListItemButton href="/dashboard">
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
+            <Link to="/dashboard">
+              <ListItemButton>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </Link>
           </Tooltip>
 
-          {role === "agent" && (
+          {username === "admin" && (
             <>
               <Tooltip title="Add Tour Agency">
-                <ListItemButton href="/dashboard/addAgentDetails">
-                  <ListItemIcon>
-                    <AddIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Add Tour Agency" />
-                </ListItemButton>
+                <Link to="/dashboard/addAgentDetails">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <AddIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Add Tour Agency" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Manage Program">
-                <ListItemButton href="/dashboard/addProgram">
-                  <ListItemIcon>
-                    <PeopleIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Manage Program" />
-                </ListItemButton>
+                <Link to="/dashboard/addProgram">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <PeopleIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Program" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Manage Packages">
-                <ListItemButton href="/dashboard/managePackage">
-                  <ListItemIcon>
-                    <FlightTakeoffIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Manage Packages" />
-                </ListItemButton>
+                <Link to="/dashboard/managePackage">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <FlightTakeoffIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Packages" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Manage Subscription">
-                <ListItemButton href="/dashboard/manageSubscription">
-                  <ListItemIcon>
-                    <CardMembershipIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Manage Subscription" />
-                </ListItemButton>
+                <Link to="/dashboard/manageSubscription">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <CardMembershipIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Subscription" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Plan Subscription">
-                <ListItemButton href="/dashboard/planSubscription">
-                  <ListItemIcon>
-                    <LoyaltyIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Plan Subscription" />
-                </ListItemButton>
+                <Link to="/dashboard/planSubscription">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <LoyaltyIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Plan Subscription" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Manage Offer">
-                <ListItemButton href="/dashboard/manageOffer">
-                  <ListItemIcon>
-                    <LocalOfferIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Manage Offer" />
-                </ListItemButton>
+                <Link to="/dashboard/manageOffer">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <LocalOfferIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Offer" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Configure Package">
-                <ListItemButton href="/dashboard/configurePackage">
-                  <ListItemIcon>
-                    <CheckBoxIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Configure Package" />
-                </ListItemButton>
+                <Link to="/dashboard/configurePackage">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <CheckBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Configure Package" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="My Dashboard">
-                <ListItemButton href="/dashboard/myDashboard">
-                  <ListItemIcon>
-                    <DashboardCustomizeIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="My Dashboard" />
-                </ListItemButton>
+                <Link to="/dashboard/myDashboard">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <DashboardCustomizeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="My Dashboard" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
               <Tooltip title="Customer Payments">
-                <ListItemButton href="/dashboard/customerPayments">
-                  <ListItemIcon>
-                    <PaymentsIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Customer Payments" />
-                </ListItemButton>
+                <Link to="/dashboard/customerPayments">
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <PaymentsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Customer Payments" />
+                  </ListItemButton>
+                </Link>
               </Tooltip>
             </>
           )}

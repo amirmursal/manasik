@@ -11,30 +11,31 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useAuth } from "../../../hooks/useAuth";
 import agentLoginStyles from "./AgentLoginStyles";
+import { useLoginMutation } from "../../../services/login";
+import { setUser } from "../../../slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const AgentLogin = () => {
-  const { login }: any = useAuth();
+  const { login: hookLogin }: any = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [login] = useLoginMutation();
+  const dispatch = useDispatch();
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
-    if (email === "agent" && password === "agent") {
-      login({
-        email,
-        password,
-        role: "agent",
-      });
-    } else if (email === "customer" && password === "customer") {
-      login({
-        email,
-        password,
-        role: "customer",
-      });
-    } else {
-      setError(true);
+
+    const { data, error: apiError }: any = await login({
+      username: email,
+      password,
+    });
+
+    if (!apiError) {
+      hookLogin(data);
+      dispatch(setUser(data));
     }
+    setError(true);
   };
 
   const handleUserNameChange = (event: any) => {
