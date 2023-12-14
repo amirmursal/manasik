@@ -1,53 +1,43 @@
-import React from "react";
-import ManagePackageStyles from "./ManagePackage.styles";
+import React, { useState } from "react";
+import addProgramStyles from "./AddProgram.styles";
 import {
   Box,
   TextField,
   InputLabel,
   FormControl,
-  Divider,
   Grid,
   MenuItem,
   Select,
-  Typography,
   Button,
-  IconButton
+  IconButton,
+  Typography,
 } from "@mui/material";
-import Icon from "@mui/material/Icon";
-import AddCircleIcon from "@mui/material/Icon";
-import CreateIcon from "@mui/icons-material/Create";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import managePackageStyles from "./ManagePackage.styles";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
-const ManagePackage = () => {
+const AddProgram = () => {
+  const [show, setShow] = useState(false);
 
-const [show, setShow]= React.useState(false)
-const [type, setType] = React.useState("")
-const [fare, setFare] = React.useState("")
-const [seat, setSeat] = React.useState("")
-const [row, setRow] = React.useState([])
-
-  const handleManagePackage = () => {
+  const handleAddProgram = () => {
     setShow((previous) => !previous);
   };
 
   const handleAddButtonClick = () => {
     console.log("Button Clicked");
-    const obj = {
-      totalFare:fare,
-      packageType:type,
-      maxSeatCount:seat,
-      seatBooked: 10,
-      seatAvailable: 5,
-    }
   };
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 200 },
-    { field: "packageType", headerName: "Package Type", width: 200 },
-    { field: "totalFare", headerName: "Total Fare (INR)", width: 200 },
-
+    { field: "programType", headerName: "Program Type", width: 200 },
+    { field: "travelDate", headerName: "Travel Date", width: 200 },
+    {
+      field: "programStatus",
+      headerName: "Program Status",
+      width: 200,
+    },
     {
       field: "maxSeatCount",
       headerName: "Max Seat Count",
@@ -63,18 +53,13 @@ const [row, setRow] = React.useState([])
       headerName: "Seat Available",
       width: 200,
     },
-    {
-      field: "deletePackage",
-      headerName: "Delete ",
-      width: 200,
-    },
   ];
 
   const rows = [
     {
       id: 1,
-      totalFare: "80,000",
-      packageType: "Economy",
+      travelDate: "12/10/2024",
+      programType: "Umrah",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -82,8 +67,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 2,
-      totalFare: "90,000",
-      packageType: "Delux",
+      travelDate: "12/10/2024",
+      programType: "Hajj",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -91,8 +76,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 3,
-      totalFare: "100,000",
-      packageType: "Super Delux",
+      travelDate: "12/10/2024",
+      programType: "Umrah",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -100,8 +85,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 4,
-      totalFare: "80,000",
-      packageType: "Economy",
+      travelDate: "12/10/2024",
+      programType: "Umrah",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -109,8 +94,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 5,
-      totalFare: "80,000",
-      packageType: "Economy",
+      travelDate: "12/10/2024",
+      programType: "Umrah",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -118,8 +103,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 6,
-      totalFare: "90,000",
-      packageType: "Delux",
+      travelDate: "12/10/2024",
+      programType: "Hajj",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -127,8 +112,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 7,
-      totalFare: "90,000",
-      packageType: "Delux",
+      travelDate: "12/10/2024",
+      programType: "Hajj",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -136,8 +121,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 8,
-      totalFare: "100,000",
-      packageType: "Super Delux",
+      travelDate: "12/10/2024",
+      programType: "Hajj",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -145,8 +130,8 @@ const [row, setRow] = React.useState([])
     },
     {
       id: 9,
-      totalFare: "100,000",
-      packageType: "Super Delux",
+      travelDate: "12/10/2024",
+      programType: "Hajj",
       programStatus: "Close",
       maxSeatCount: 50,
       seatBooked: 10,
@@ -154,77 +139,56 @@ const [row, setRow] = React.useState([])
     },
   ];
 
-
-
   return (
-    <Box sx={ManagePackageStyles.root}>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={ManagePackageStyles.preSubHead}
-      >
-        Add Subscription Plan
-      </Typography>
-
-      <Box sx={ManagePackageStyles.addProgramButton}>
-      <Typography variant="h6">Add Subscription Plan</Typography>
-        <Button color="primary" variant="contained" onClick={handleManagePackage}>
-          Manage Package
+    <Box>
+      <Box sx={addProgramStyles.addProgramButton}>
+        <Typography variant="h6">Balance Subscription: 50</Typography>
+        <Button color="primary" variant="contained" onClick={handleAddProgram}>
+          Add Program
         </Button>
-      </Box> 
-
+      </Box>
+      <br />
       {show && (
-        <Grid container spacing={1} sx={managePackageStyles.addProgramForm}>
+        <Grid container spacing={1} sx={addProgramStyles.addProgramForm}>
           <Grid item xs={12} sm={6} md={3}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
-                Package Type
+                Program Type
               </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Program Type"
-                onChange={(e) => setType(e.target.value as string)}
               >
-                <MenuItem value="Delux">Economy</MenuItem>
-                <MenuItem value="Economy">Delux</MenuItem>
-                <MenuItem value="Economy">Super Delux</MenuItem>
+                <MenuItem value="hajj">Hajj</MenuItem>
+                <MenuItem value="umrah">Umrah</MenuItem>
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <TextField
-              fullWidth
-              type="number"
-              label="Total Fair"
-              variant="outlined"
-              onChange={(e) => setFare(e.target.value)}
-            />
+          <Grid item xs={12} sm={6} md={2}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker label="Travel Date" onChange={(newValue) => {}} />
+            </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <TextField
               fullWidth
               type="number"
-              label="max seat count"
+              label="Seat Count"
               variant="outlined"
-              onChange={(e) => setSeat(e.target.value)}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <IconButton color="success" 
-            onClick={handleAddButtonClick}
-            >
+            <IconButton color="primary" onClick={handleAddButtonClick}>
               <AddCircleIcon />
             </IconButton>
           </Grid>
         </Grid>
       )}
-
-
-<br />
+      <br />
       <DataGrid
         keepNonExistentRowsSelected
-        sx={managePackageStyles.root}
+        sx={addProgramStyles.root}
         rows={rows}
         columns={columns}
         initialState={{
@@ -235,11 +199,8 @@ const [row, setRow] = React.useState([])
         rowSelection={false}
         pageSizeOptions={[5, 10]}
       />
-
-    
-      
     </Box>
   );
 };
 
-export default ManagePackage;
+export default AddProgram;
