@@ -9,23 +9,25 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useAuth } from "../../../hooks/useAuth";
-import agentLoginStyles from "./AgentLoginStyles";
-import { useLoginMutation } from "../../../services/login";
-import { setUser } from "../../../slices/userSlice";
+import { useAuth } from "../../hooks/useAuth";
+import loginStyles from "./LoginStyles";
+import { useLoginMutation } from "../../services/login";
+import { setUser } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
+import { CircularProgress } from "@mui/material";
 
-const AgentLogin = () => {
+const Login = () => {
   const { login: hookLogin }: any = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [login] = useLoginMutation();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
+    setIsLoading(true);
     const { data, error: apiError }: any = await login({
       username: email,
       password,
@@ -36,6 +38,7 @@ const AgentLogin = () => {
       dispatch(setUser(data));
     }
     setError(true);
+    setIsLoading(false);
   };
 
   const handleUserNameChange = (event: any) => {
@@ -48,17 +51,18 @@ const AgentLogin = () => {
     setError(false);
   };
 
+  console.log(isLoading);
   return (
     <Container maxWidth="xs">
       <CssBaseline />
-      <Box sx={agentLoginStyles.root}>
-        <Avatar sx={agentLoginStyles.avatar}>
+      <Box sx={loginStyles.root}>
+        <Avatar sx={loginStyles.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" noValidate sx={agentLoginStyles.form}>
+        <Box component="form" noValidate sx={loginStyles.form}>
           <TextField
             margin="normal"
             required
@@ -88,9 +92,10 @@ const AgentLogin = () => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={agentLoginStyles.submitButton}
+            sx={loginStyles.submitButton}
             onClick={handleSubmit}
             disabled={email.length === 0 || password.length === 0}
+            startIcon={isLoading && <CircularProgress />}
           >
             Sign In
           </Button>
@@ -112,4 +117,4 @@ const AgentLogin = () => {
   );
 };
 
-export default AgentLogin;
+export default Login;

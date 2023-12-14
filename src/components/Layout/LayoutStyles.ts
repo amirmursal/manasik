@@ -2,6 +2,10 @@ const layoutStyles = {
   toolbar: {
     pr: "24px", // keep right padding when drawer closed
   },
+  linkText: {
+    color: "inherit",
+    textDecoration: "none",
+  },
   container: {
     display: "flex",
   },

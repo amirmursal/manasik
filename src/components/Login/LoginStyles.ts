@@ -1,9 +1,12 @@
-const agentLoginStyles = {
+const loginStyles = {
   root: {
     marginTop: 8,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    "& .MuiCircularProgress-root": {
+      color: "#fff",
+    },
   },
   avatar: {
     m: 1,
@@ -24,4 +27,4 @@ const agentLoginStyles = {
     color: "#fff",
   },
 };
-export default agentLoginStyles;
+export default loginStyles;

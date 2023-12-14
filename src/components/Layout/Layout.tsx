@@ -136,7 +136,7 @@ const Layout = () => {
         <Divider />
         <List component="nav">
           <Tooltip title="Dashboard">
-            <Link to="/dashboard">
+            <Link to="/dashboard" style={layoutStyles.linkText}>
               <ListItemButton>
                 <ListItemIcon>
                   <DashboardIcon />
@@ -149,7 +149,10 @@ const Layout = () => {
           {username === "admin" && (
             <>
               <Tooltip title="Add Tour Agency">
-                <Link to="/dashboard/addAgentDetails">
+                <Link
+                  to="/dashboard/addAgentDetails"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <AddIcon />
@@ -159,7 +162,7 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Manage Program">
-                <Link to="/dashboard/addProgram">
+                <Link to="/dashboard/addProgram" style={layoutStyles.linkText}>
                   <ListItemButton>
                     <ListItemIcon>
                       <PeopleIcon />
@@ -169,7 +172,10 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Manage Packages">
-                <Link to="/dashboard/managePackage">
+                <Link
+                  to="/dashboard/managePackage"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <FlightTakeoffIcon />
@@ -179,7 +185,10 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Manage Subscription">
-                <Link to="/dashboard/manageSubscription">
+                <Link
+                  to="/dashboard/manageSubscription"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <CardMembershipIcon />
@@ -189,7 +198,10 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Plan Subscription">
-                <Link to="/dashboard/planSubscription">
+                <Link
+                  to="/dashboard/planSubscription"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <LoyaltyIcon />
@@ -199,7 +211,7 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Manage Offer">
-                <Link to="/dashboard/manageOffer">
+                <Link to="/dashboard/manageOffer" style={layoutStyles.linkText}>
                   <ListItemButton>
                     <ListItemIcon>
                       <LocalOfferIcon />
@@ -209,7 +221,10 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Configure Package">
-                <Link to="/dashboard/configurePackage">
+                <Link
+                  to="/dashboard/configurePackage"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <CheckBoxIcon />
@@ -219,7 +234,7 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="My Dashboard">
-                <Link to="/dashboard/myDashboard">
+                <Link to="/dashboard/myDashboard" style={layoutStyles.linkText}>
                   <ListItemButton>
                     <ListItemIcon>
                       <DashboardCustomizeIcon />
@@ -229,7 +244,10 @@ const Layout = () => {
                 </Link>
               </Tooltip>
               <Tooltip title="Customer Payments">
-                <Link to="/dashboard/customerPayments">
+                <Link
+                  to="/dashboard/customerPayments"
+                  style={layoutStyles.linkText}
+                >
                   <ListItemButton>
                     <ListItemIcon>
                       <PaymentsIcon />
