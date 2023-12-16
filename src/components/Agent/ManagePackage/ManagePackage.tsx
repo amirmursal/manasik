@@ -5,7 +5,6 @@ import {
   TextField,
   InputLabel,
   FormControl,
-  Divider,
   Grid,
   MenuItem,
   Select,
@@ -23,10 +22,8 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 const ManagePackage = () => {
 
 const [show, setShow]= React.useState(false)
-const [type, setType] = React.useState("")
-const [fare, setFare] = React.useState("")
-const [seat, setSeat] = React.useState("")
-const [row, setRow] = React.useState([])
+const [programType, setProgramType] = React.useState("")
+
 
   const handleManagePackage = () => {
     setShow((previous) => !previous);
@@ -34,40 +31,35 @@ const [row, setRow] = React.useState([])
 
   const handleAddButtonClick = () => {
     console.log("Button Clicked");
-    const obj = {
-      totalFare:fare,
-      packageType:type,
-      maxSeatCount:seat,
-      seatBooked: 10,
-      seatAvailable: 5,
-    }
+    
   };
 
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", width: 200 },
-    { field: "packageType", headerName: "Package Type", width: 200 },
-    { field: "totalFare", headerName: "Total Fare (INR)", width: 200 },
+    { field: "id", headerName: "ID", width: 210 },
+    { field: "packageType", headerName: "Package Type", width: 210 },
+    { field: "totalFare", headerName: "Total Fare (INR)", width: 210 },
 
     {
       field: "maxSeatCount",
       headerName: "Max Seat Count",
-      width: 200,
+      width: 210,
+    },
+    {
+      field:"minBookingAmount",
+      headerName: "Min Booking Amount",
+      width:215,
     },
     {
       field: "seatBooked",
       headerName: "Seat Booked",
-      width: 197,
+      width: 210,
     },
     {
       field: "seatAvailable",
       headerName: "Seat Available",
-      width: 200,
+      width: 210,
     },
-    {
-      field: "deletePackage",
-      headerName: "Delete ",
-      width: 200,
-    },
+  
   ];
 
   const rows = [
@@ -77,6 +69,7 @@ const [row, setRow] = React.useState([])
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -86,6 +79,7 @@ const [row, setRow] = React.useState([])
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -95,6 +89,7 @@ const [row, setRow] = React.useState([])
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -104,6 +99,7 @@ const [row, setRow] = React.useState([])
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -113,6 +109,7 @@ const [row, setRow] = React.useState([])
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -122,6 +119,7 @@ const [row, setRow] = React.useState([])
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -131,6 +129,7 @@ const [row, setRow] = React.useState([])
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -140,6 +139,7 @@ const [row, setRow] = React.useState([])
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -149,6 +149,7 @@ const [row, setRow] = React.useState([])
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
+      minBookingAmount:"5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -158,24 +159,35 @@ const [row, setRow] = React.useState([])
 
   return (
     <Box sx={ManagePackageStyles.root}>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={ManagePackageStyles.preSubHead}
-      >
-        Add Subscription Plan
-      </Typography>
+    
 
-      <Box sx={ManagePackageStyles.addProgramButton}>
-      <Typography variant="h6">Add Subscription Plan</Typography>
-        <Button color="primary" variant="contained" onClick={handleManagePackage}>
-          Manage Package
+      <Box marginBottom={5} sx={ManagePackageStyles.addProgramButton}>
+      <Grid item xs={12} sm={6} md={2.6}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+                Program
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Program Type"
+                onChange={(e) => setProgramType(e.target.value as string)}
+              >
+                <MenuItem value="hajj">Hajj</MenuItem>
+                <MenuItem value="umrah">Umrah</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        <Button color="primary" variant="contained"
+          disabled={programType !== "" ? false : true }
+        onClick={handleManagePackage}>
+          Add Package
         </Button>
       </Box> 
 
       {show && (
         <Grid container spacing={1} sx={managePackageStyles.addProgramForm}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.6}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 Package Type
@@ -183,8 +195,8 @@ const [row, setRow] = React.useState([])
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                label="Program Type"
-                onChange={(e) => setType(e.target.value as string)}
+                label="Package Type"
+               
               >
                 <MenuItem value="Delux">Economy</MenuItem>
                 <MenuItem value="Economy">Delux</MenuItem>
@@ -192,25 +204,34 @@ const [row, setRow] = React.useState([])
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.6}>
             <TextField
               fullWidth
               type="number"
               label="Total Fair"
               variant="outlined"
-              onChange={(e) => setFare(e.target.value)}
+             
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.6}>
             <TextField
               fullWidth
               type="number"
               label="max seat count"
               variant="outlined"
-              onChange={(e) => setSeat(e.target.value)}
+            
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="min booking amount"
+              variant="outlined"
+             
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
             <IconButton color="success" 
             onClick={handleAddButtonClick}
             >
