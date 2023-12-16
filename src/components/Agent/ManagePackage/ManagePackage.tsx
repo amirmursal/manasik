@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ManagePackageStyles from "./ManagePackage.styles";
 import {
   Box,
@@ -8,22 +8,16 @@ import {
   Grid,
   MenuItem,
   Select,
-  Typography,
   Button,
-  IconButton
+  IconButton,
 } from "@mui/material";
-import Icon from "@mui/material/Icon";
-import AddCircleIcon from "@mui/material/Icon";
-import CreateIcon from "@mui/icons-material/Create";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import managePackageStyles from "./ManagePackage.styles";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const ManagePackage = () => {
-
-const [show, setShow]= React.useState(false)
-const [programType, setProgramType] = React.useState("")
-
+  const [show, setShow] = React.useState(false);
+  const [programType, setProgramType] = useState("");
 
   const handleManagePackage = () => {
     setShow((previous) => !previous);
@@ -31,7 +25,6 @@ const [programType, setProgramType] = React.useState("")
 
   const handleAddButtonClick = () => {
     console.log("Button Clicked");
-    
   };
 
   const columns: GridColDef[] = [
@@ -45,9 +38,9 @@ const [programType, setProgramType] = React.useState("")
       width: 210,
     },
     {
-      field:"minBookingAmount",
+      field: "minBookingAmount",
       headerName: "Min Booking Amount",
-      width:215,
+      width: 215,
     },
     {
       field: "seatBooked",
@@ -59,7 +52,6 @@ const [programType, setProgramType] = React.useState("")
       headerName: "Seat Available",
       width: 210,
     },
-  
   ];
 
   const rows = [
@@ -69,7 +61,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"3000",
+      minBookingAmount: "3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -79,7 +71,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"4000",
+      minBookingAmount: "4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -89,7 +81,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"5000",
+      minBookingAmount: "5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -99,7 +91,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"3000",
+      minBookingAmount: "3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -109,7 +101,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Economy",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"3000",
+      minBookingAmount: "3000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -119,7 +111,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"4000",
+      minBookingAmount: "4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -129,7 +121,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"4000",
+      minBookingAmount: "4000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -139,7 +131,7 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"5000",
+      minBookingAmount: "5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
@@ -149,44 +141,41 @@ const [programType, setProgramType] = React.useState("")
       packageType: "Super Delux",
       programStatus: "Close",
       maxSeatCount: 50,
-      minBookingAmount:"5000",
+      minBookingAmount: "5000",
       seatBooked: 10,
       seatAvailable: 5,
     },
   ];
 
-
-
   return (
     <Box sx={ManagePackageStyles.root}>
-    
-
-      <Box marginBottom={5} sx={ManagePackageStyles.addProgramButton}>
-      <Grid item xs={12} sm={6} md={2.6}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Program
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Program Type"
-                onChange={(e) => setProgramType(e.target.value as string)}
-              >
-                <MenuItem value="hajj">Hajj</MenuItem>
-                <MenuItem value="umrah">Umrah</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-        <Button color="primary" variant="contained"
-          disabled={programType !== "" ? false : true }
-        onClick={handleManagePackage}>
+      <Box marginBottom={5} sx={ManagePackageStyles.addPackageButton}>
+        <Grid item xs={12} sm={6} md={2.6}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Program</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Program Type"
+              onChange={(e) => setProgramType(e.target.value as string)}
+            >
+              <MenuItem value="hajj">Hajj</MenuItem>
+              <MenuItem value="umrah">Umrah</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Button
+          color="primary"
+          variant="contained"
+          disabled={programType !== "" ? false : true}
+          onClick={handleManagePackage}
+        >
           Add Package
         </Button>
-      </Box> 
+      </Box>
 
       {show && (
-        <Grid container spacing={1} sx={managePackageStyles.addProgramForm}>
+        <Grid container spacing={1} sx={managePackageStyles.addPackageForm}>
           <Grid item xs={12} sm={6} md={2.6}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
@@ -196,7 +185,6 @@ const [programType, setProgramType] = React.useState("")
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Package Type"
-               
               >
                 <MenuItem value="Delux">Economy</MenuItem>
                 <MenuItem value="Economy">Delux</MenuItem>
@@ -210,7 +198,6 @@ const [programType, setProgramType] = React.useState("")
               type="number"
               label="Total Fair"
               variant="outlined"
-             
             />
           </Grid>
           <Grid item xs={12} sm={6} md={2.6}>
@@ -219,7 +206,6 @@ const [programType, setProgramType] = React.useState("")
               type="number"
               label="max seat count"
               variant="outlined"
-            
             />
           </Grid>
           <Grid item xs={12} sm={6} md={2.6}>
@@ -228,21 +214,16 @@ const [programType, setProgramType] = React.useState("")
               type="number"
               label="min booking amount"
               variant="outlined"
-             
             />
           </Grid>
           <Grid item xs={12} sm={6} md={1.6}>
-            <IconButton color="success" 
-            onClick={handleAddButtonClick}
-            >
-              <AddCircleIcon />
+            <IconButton color="success" onClick={handleAddButtonClick}>
+              <AddCircleIcon  />
             </IconButton>
           </Grid>
         </Grid>
       )}
-
-
-<br />
+      <br />
       <DataGrid
         keepNonExistentRowsSelected
         sx={managePackageStyles.root}
@@ -256,9 +237,6 @@ const [programType, setProgramType] = React.useState("")
         rowSelection={false}
         pageSizeOptions={[5, 10]}
       />
-
-    
-      
     </Box>
   );
 };
