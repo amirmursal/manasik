@@ -219,17 +219,6 @@ const ManageSubscription = () => {
         rowSelection={false}
         pageSizeOptions={[5, 10]}
       />
-<Box sx={manageSubscriptionStyles.endButton}>
-  <Button
-          color="primary"
-          variant="contained"
-          disabled={subscriptionType !== "" ? false : true}
-          onClick={handleManageSubscription}
-        >
-          Update Plans
-        </Button>
-</Box>
-
     </Box>
   );
 };

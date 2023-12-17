@@ -1,32 +1,26 @@
 const manageSubscriptionStyles = {
-    root: {
-      "& .MuiDataGrid-columnHeader": {
-        color: "#fff",
-        background: "#388e3c",
-      },
-      "& .MuiDataGrid-row:nth-child(even)": {
-        background: "#ebf1e8",
-      },
-      "& .MuiDataGrid-row:nth-child(odd)": {
-        background: "#d4e2ce",
-      },
-      "& .MuiSvgIcon-root": {
-        //color: "#fff",
-      },
+  root: {
+    "& .MuiDataGrid-columnHeader": {
+      color: "#fff",
+      background: "#388e3c",
     },
-    addSubscriptionButton: {
-      display: "flex",
-      justifyContent: "space-between",
+    "& .MuiDataGrid-row:nth-child(even)": {
+      background: "#ebf1e8",
     },
-    addSubscriptionForm: {
-      display: "flex",
-      alignItems: "center",
+    "& .MuiDataGrid-row:nth-child(odd)": {
+      background: "#d4e2ce",
     },
-    endButton:{
-        display:"flex",
-        justifyContent:"center",
-        marginTop:"30px"
-    }
-  };
-  export default manageSubscriptionStyles;
-  
+    "& .MuiSvgIcon-root": {
+      //color: "#fff",
+    },
+  },
+  addSubscriptionButton: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  addSubscriptionForm: {
+    display: "flex",
+    alignItems: "center",
+  },
+};
+export default manageSubscriptionStyles;
