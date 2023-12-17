@@ -1,9 +1,9 @@
 import { Navigate, useOutlet } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import { RootState } from "../store";
+import { useAuth } from "../../hooks/useAuth";
+import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 
-export const LoginLayout = () => {
+const LoginLayout = () => {
   const user = useSelector((state: RootState) => state.user);
   const outlet = useOutlet();
 
@@ -13,3 +13,5 @@ export const LoginLayout = () => {
 
   return <>{outlet}</>;
 };
+
+export default LoginLayout;

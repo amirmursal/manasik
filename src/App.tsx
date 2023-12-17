@@ -9,7 +9,6 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import ManagePackage from "./components/Agent/ManagePackage";
 import Login from "./components/Login";
-import { LoginLayout } from "./components/LoginLayout";
 import ManageOffer from "./components/Agent/ManageOffer";
 import ConfigurePackage from "./components/Agent/ConfigurePackage";
 import ManageSubscription from "./components/Agent/ManageSubscription";
@@ -18,6 +17,7 @@ import DefaultLayout from "./components/DefaultLayout";
 import Footer from "./components/Footer";
 import MyDashboard from "./components/Agent/MyDashboard";
 import CustomerPayments from "./components/Agent/CustomerPayments";
+import LoginLayout from "./components/LoginLayout";
 
 const App = () => {
   return (
