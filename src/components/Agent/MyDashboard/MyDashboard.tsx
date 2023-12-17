@@ -17,7 +17,7 @@ const MyDashboard = () => {
       <Typography variant="h6" sx={MyDashboardStyles.infoText} component="div">
         My Dashboard
       </Typography>
-      <Box sx={{ margin: "0% 5% 5% 5%", display: "flex", alignItems: "center" }}>
+      <Box sx={MyDashboardStyles.mainContainer}>
         <Grid container spacing={2} columns={{ xs: 1, sm: 8, md: 12 }}>
           <Grid item xs={3}>
             <FormControl fullWidth variant="outlined">
@@ -44,7 +44,7 @@ const MyDashboard = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} sx={MyDashboardStyles.searchButton}>
             <FormControl variant="outlined">
               <Button variant="contained">Search Tour</Button>
             </FormControl>
@@ -53,10 +53,11 @@ const MyDashboard = () => {
       </Box>
 
       <Typography component="div" sx={MyDashboardStyles.subHead}>
-        <Typography variant="h6" >UMRAH : 30-OCT-2023</Typography>
-        <Typography variant="h6" >Program Status : Booking In Progress</Typography>
+        <Typography variant="h6">UMRAH : 30-OCT-2023</Typography>
+        <Typography variant="h6">
+          Program Status : Booking In Progress
+        </Typography>
       </Typography>
-
 
       <Box sx={MyDashboardStyles.table}>
         <table>
@@ -90,7 +91,7 @@ const MyDashboard = () => {
             <tr>
               <td>Mohammad Wasim</td>
               <td>Economy</td>
-              <td style={{color:"red"}}>Cancelled</td>
+              <td style={{ color: "red" }}>Cancelled</td>
               <td>80,000</td>
               <td>10,000</td>
               <td>NA</td>
@@ -126,7 +127,7 @@ const MyDashboard = () => {
             <tr>
               <td>Ayaaz Mahaphule</td>
               <td>Economy</td>
-              <td style={{color:"yellow"}}>Waiting</td>
+              <td style={{ color: "yellow" }}>Waiting</td>
               <td>80,000</td>
               <td>30,000</td>
               <td>50,000</td>
@@ -169,8 +170,6 @@ const MyDashboard = () => {
           </tbody>
         </table>
       </Box>
-
-
     </Box>
   );
 };

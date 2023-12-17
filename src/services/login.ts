@@ -30,9 +30,15 @@ export const loginApi = createApi({
       // Pick out data and prevent nested properties in a hook or selector
       transformResponse: (response: any) => response,
     }),
+    logout: builder.mutation({
+      query: () => ({
+        url: `Auth/logout`,
+        method: "POST",
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useLoginMutation } = loginApi;
+export const { useLoginMutation, useLogoutMutation } = loginApi;

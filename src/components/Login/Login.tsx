@@ -51,7 +51,6 @@ const Login = () => {
     setError(false);
   };
 
-  console.log(isLoading);
   return (
     <Container maxWidth="xs">
       <CssBaseline />

@@ -1,6 +1,6 @@
-import { Link, Navigate, useOutlet } from "react-router-dom";
+import { Link, Navigate, useNavigate, useOutlet } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   AppBarProps,
   Box,
@@ -34,8 +34,10 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import PaymentsIcon from "@mui/icons-material/Payments";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { useLogoutMutation } from "../../services/login";
+import { setUser } from "../../slices/userSlice";
 
 const drawerWidth: number = 240;
 
@@ -85,8 +87,9 @@ const Drawer = styled(MuiDrawer, {
 
 const Layout = () => {
   const { username } = useSelector((state: RootState) => state.user);
-
-  const { logout }: any = useAuth();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [logout] = useLogoutMutation();
 
   const outlet = useOutlet();
   const [open, setOpen] = useState(false);
@@ -94,6 +97,12 @@ const Layout = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const handleLogout = useCallback(async () => {
+    dispatch(setUser({ username: null }));
+    navigate("/", { replace: true });
+    await logout(null);
+  }, [dispatch, navigate, logout]);
 
   if (username?.length === 0) {
     return <Navigate to="/" replace />;
@@ -259,7 +268,7 @@ const Layout = () => {
             </>
           )}
           <Tooltip title="Logout">
-            <ListItemButton onClick={logout}>
+            <ListItemButton onClick={handleLogout}>
               <ListItemIcon>
                 <LogoutIcon />
               </ListItemIcon>
