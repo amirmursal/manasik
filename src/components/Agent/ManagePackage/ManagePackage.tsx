@@ -150,7 +150,7 @@ const ManagePackage = () => {
   return (
     <Box sx={ManagePackageStyles.root}>
       <Box marginBottom={5} sx={ManagePackageStyles.addPackageButton}>
-        <Grid item xs={12} sm={6} md={2.6}>
+        <Grid item xs={12} sm={6} md={3}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Program</InputLabel>
             <Select
@@ -176,7 +176,7 @@ const ManagePackage = () => {
 
       {show && (
         <Grid container spacing={1} sx={managePackageStyles.addPackageForm}>
-          <Grid item xs={12} sm={6} md={2.6}>
+          <Grid item xs={12} sm={6} md={2}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 Package Type
@@ -192,7 +192,7 @@ const ManagePackage = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6} md={2.6}>
+          <Grid item xs={12} sm={6} md={2}>
             <TextField
               fullWidth
               type="number"
@@ -200,25 +200,25 @@ const ManagePackage = () => {
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={2.6}>
+          <Grid item xs={12} sm={6} md={2}>
             <TextField
               fullWidth
               type="number"
-              label="max seat count"
+              label="Max Seat Count"
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={2.6}>
+          <Grid item xs={12} sm={6} md={2}>
             <TextField
               fullWidth
               type="number"
-              label="min booking amount"
+              label="Minimum Booking Amount"
               variant="outlined"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={1.6}>
+          <Grid item xs={12} sm={6} md={2}>
             <IconButton color="success" onClick={handleAddButtonClick}>
-              <AddCircleIcon  />
+              <AddCircleIcon />
             </IconButton>
           </Grid>
         </Grid>

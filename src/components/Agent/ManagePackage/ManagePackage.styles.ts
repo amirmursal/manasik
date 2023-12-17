@@ -17,6 +17,7 @@ const managePackageStyles = {
   addPackageButton: {
     display: "flex",
     justifyContent: "space-between",
+    height: "40px",
   },
   addPackageForm: {
     display: "flex",

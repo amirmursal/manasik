@@ -94,7 +94,7 @@ const Login = () => {
             variant="contained"
             sx={loginStyles.submitButton}
             onClick={handleSubmit}
-            disabled={email.length === 0 || password.length === 0}
+            disabled={isLoading || email.length === 0 || password.length === 0}
             startIcon={isLoading && <CircularProgress />}
           >
             Sign In
