@@ -1,115 +1,242 @@
-import React from "react";
+import React, { useState } from "react";
 import ManagePackageStyles from "./ManagePackage.styles";
 import {
   Box,
   TextField,
   InputLabel,
   FormControl,
-  Divider,
   Grid,
   MenuItem,
   Select,
-  Typography,
+  Button,
+  IconButton,
 } from "@mui/material";
-import Icon from "@mui/material/Icon";
-import CreateIcon from "@mui/icons-material/Create";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import managePackageStyles from "./ManagePackage.styles";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const ManagePackage = () => {
+  const [show, setShow] = React.useState(false);
+  const [programType, setProgramType] = useState("");
+
+  const handleManagePackage = () => {
+    setShow((previous) => !previous);
+  };
+
+  const handleAddButtonClick = () => {
+    console.log("Button Clicked");
+  };
+
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", width: 210 },
+    { field: "packageType", headerName: "Package Type", width: 210 },
+    { field: "totalFare", headerName: "Total Fare (INR)", width: 210 },
+
+    {
+      field: "maxSeatCount",
+      headerName: "Max Seat Count",
+      width: 210,
+    },
+    {
+      field: "minBookingAmount",
+      headerName: "Min Booking Amount",
+      width: 215,
+    },
+    {
+      field: "seatBooked",
+      headerName: "Seat Booked",
+      width: 210,
+    },
+    {
+      field: "seatAvailable",
+      headerName: "Seat Available",
+      width: 210,
+    },
+  ];
+
+  const rows = [
+    {
+      id: 1,
+      totalFare: "80,000",
+      packageType: "Economy",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "3000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 2,
+      totalFare: "90,000",
+      packageType: "Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "4000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 3,
+      totalFare: "100,000",
+      packageType: "Super Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "5000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 4,
+      totalFare: "80,000",
+      packageType: "Economy",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "3000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 5,
+      totalFare: "80,000",
+      packageType: "Economy",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "3000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 6,
+      totalFare: "90,000",
+      packageType: "Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "4000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 7,
+      totalFare: "90,000",
+      packageType: "Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "4000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 8,
+      totalFare: "100,000",
+      packageType: "Super Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "5000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+    {
+      id: 9,
+      totalFare: "100,000",
+      packageType: "Super Delux",
+      programStatus: "Close",
+      maxSeatCount: 50,
+      minBookingAmount: "5000",
+      seatBooked: 10,
+      seatAvailable: 5,
+    },
+  ];
+
   return (
     <Box sx={ManagePackageStyles.root}>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={ManagePackageStyles.preSubHead}
-      >
-        Add Subscription Plan
-      </Typography>
-      <Typography variant="h6" component="div" sx={ManagePackageStyles.subHead}>
-        Add Package
-      </Typography>
-
-      <Box sx={ManagePackageStyles.program}>
-        <Grid container columns={{ xs: 1, sm: 6, md: 12 }}>
-          <Grid xs={3} sx={ManagePackageStyles.pad}>
-            <FormControl
-              sx={ManagePackageStyles.formcontrol}
-              fullWidth
-              variant="outlined"
+      <Box marginBottom={5} sx={ManagePackageStyles.addPackageButton}>
+        <Grid item xs={12} sm={6} md={3}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Program</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Program Type"
+              onChange={(e) => setProgramType(e.target.value as string)}
             >
-              <InputLabel sx={ManagePackageStyles.label}>
+              <MenuItem value="hajj">Hajj</MenuItem>
+              <MenuItem value="umrah">Umrah</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Button
+          color="primary"
+          variant="contained"
+          disabled={programType !== "" ? false : true}
+          onClick={handleManagePackage}
+        >
+          Add Package
+        </Button>
+      </Box>
+
+      {show && (
+        <Grid container spacing={1} sx={managePackageStyles.addPackageForm}>
+          <Grid item xs={12} sm={6} md={2}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
                 Package Type
               </InputLabel>
-              <Select sx={ManagePackageStyles.selector}>
-                <MenuItem value="hajj">Economy</MenuItem>
-                <MenuItem value="umrah">Delux</MenuItem>
-                <MenuItem value="umrah">Super Delux</MenuItem>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Package Type"
+              >
+                <MenuItem value="Delux">Economy</MenuItem>
+                <MenuItem value="Economy">Delux</MenuItem>
+                <MenuItem value="Economy">Super Delux</MenuItem>
               </Select>
             </FormControl>
           </Grid>
-
-          <Grid item xs={3} sx={ManagePackageStyles.fair}>
-            <Typography variant="h6">Total Fair</Typography>
-            <TextField type="number" size="small" style={{ width: "200px" }} />
+          <Grid item xs={12} sm={6} md={2}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Total Fair"
+              variant="outlined"
+            />
           </Grid>
-
-          <Grid item xs={6} sx={ManagePackageStyles.seats}>
-            <Typography variant="h6">Max Seats Count</Typography>
-            <TextField type="number" size="small" />
-            <Icon sx={ManagePackageStyles.icon}>+</Icon>
+          <Grid item xs={12} sm={6} md={2}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Max Seat Count"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={2}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Minimum Booking Amount"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={2}>
+            <IconButton color="success" onClick={handleAddButtonClick}>
+              <AddCircleIcon />
+            </IconButton>
           </Grid>
         </Grid>
-      </Box>
-      <Box sx={ManagePackageStyles.table}>
-        <table>
-          <thead>
-            <tr>
-              <th style={{ backgroundColor: "white" }}></th>
-              <th>Package Type</th>
-              <th>Total Fare (INR)</th>
-              <th>Max Seat Count</th>
-              <th>Seat Booked</th>
-              <th>Seat Available</th>
-              <th style={{ backgroundColor: "white" }}></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <CreateIcon />
-              </td>
-              <td>Economy</td>
-              <td>80,000</td>
-              <td>30</td>
-              <td>25</td>
-              <td>5</td>
-              <td>✕</td>
-            </tr>
-            <tr>
-              <td>
-                <CreateIcon />
-              </td>
-              <td>Delux</td>
-              <td>90,000</td>
-              <td>10</td>
-              <td>8</td>
-              <td>2</td>
-              <td>✕</td>
-            </tr>
-            <tr>
-              <td>
-                <CreateIcon />
-              </td>
-              <td>Super Delux</td>
-              <td>100,000</td>
-              <td>10</td>
-              <td>7</td>
-              <td>3</td>
-              <td>✕</td>
-            </tr>
-          </tbody>
-        </table>
-      </Box>
-      <Divider sx={ManagePackageStyles.divider} />
+      )}
+      <br />
+      <DataGrid
+        keepNonExistentRowsSelected
+        sx={managePackageStyles.root}
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        rowSelection={false}
+        pageSizeOptions={[5, 10]}
+      />
     </Box>
   );
 };
