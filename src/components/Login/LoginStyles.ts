@@ -4,9 +4,6 @@ const loginStyles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    "& .MuiCircularProgress-root": {
-      color: "#fff",
-    },
   },
   avatar: {
     m: 1,
