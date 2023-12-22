@@ -119,9 +119,6 @@ const CustomerPayments = () => {
         </Grid>
       </Grid> */}
 
-      <Typography component="div" >
-        <Typography variant="h6">Add Payment</Typography>
-      </Typography>
 
       <Grid container spacing={1} sx={CustomerPaymentsStyles.addPackageForm}>
           <Grid item xs={12} sm={6} md={1.6}>
