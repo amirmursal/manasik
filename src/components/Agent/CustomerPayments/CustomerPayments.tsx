@@ -2,27 +2,106 @@ import {
   Box,
   Grid,
   MenuItem,
+  FormControl,
   Select,
+  InputLabel,
   Typography,
   TextField,
 } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import CustomerPaymentsStyles from "./CustomerPayments.styles";
 import React from "react";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import customerPaymentsStyles from "./CustomerPayments.styles";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const CustomerPayments = () => {
+
+
+
+
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", width: 130 },
+    { field: "amountPaid", headerName: "Amount Paid", width: 150 },
+    { field: "paymentDate", headerName: "Payment Date", width: 200 },
+
+    {
+      field: "paymentMethod",
+      headerName: "Payment Method",
+      width: 200,
+    },
+    {
+      field: "upiId",
+      headerName: "UPI ID / Number",
+      width: 200,
+    },
+    {
+      field: "accountNumber",
+      headerName: "Account Number",
+      width: 200,
+    },
+    {
+      field: "ifsccode",
+      headerName: "IFSC Code",
+      width: 200,
+    },
+    {
+      field: "bankName",
+      headerName: "Bank Name",
+      width: 200,
+    },
+   
+  ];
+
+  const rows = [
+    {
+      id: 1,
+      amountPaid: "5,000",
+      paymentDate: "10/11/23",
+      paymentMethod: "UPI",
+      upiId: 9142456603,
+      accountNumber: 10018227612987,
+      ifsccode: "ICICI0023",
+      bankName: "ICICI Bank",
+    },
+    {
+      id: 2,
+      amountPaid: "15,000",
+      paymentDate: "12/11/23",
+      paymentMethod: "Net Banking",
+      upiId: 9645234789,
+      accountNumber: 10018810123567,
+      ifsccode: "SBI-00600",
+      bankName: "SBI Bank",
+    },
+    {
+      id: 3,
+      amountPaid: "30,000",
+      paymentDate: "15/11/23",
+      paymentMethod: "Cheque",
+      upiId: 8876452344,
+      accountNumber:10018810123009,
+      ifsccode: "MABH0990",
+      bankName: "MAHA Bank",
+    },
+    
+  ];
+
+
+
+
+
+
   return (
     <Box sx={CustomerPaymentsStyles.root}>
-      <Typography
-        variant="h6"
-        sx={CustomerPaymentsStyles.infoText}
-        component="div"
-      >
-        Manage Customer Payments
-      </Typography>
+    
 
-      <Grid container spacing={0.2} columns={{ xs: 1, sm: 8, md: 10 }}>
+      {/* <Grid container spacing={0.2} columns={{ xs: 1, sm: 8, md: 10 }}>
         <Grid sx={CustomerPaymentsStyles.subHead} item xs={2}>
           <Typography variant="h6">UMRAH : 30-OCT-2023 </Typography>
         </Grid>
@@ -38,93 +117,98 @@ const CustomerPayments = () => {
         <Grid sx={CustomerPaymentsStyles.subHead} item xs={2}>
           <Typography variant="h6">Remaining Amount : 30,000</Typography>
         </Grid>
-      </Grid>
+      </Grid> */}
 
-      <Typography component="div" sx={CustomerPaymentsStyles.tableHead}>
+      <Typography component="div" >
         <Typography variant="h6">Add Payment</Typography>
       </Typography>
 
-      <Box component="div" sx={CustomerPaymentsStyles.panel}>
-        <Box component="div">
-          <Typography variant="h6">Amount</Typography>
-          <TextField size="small" sx={CustomerPaymentsStyles.input}></TextField>
-        </Box>
-        <Box component="div">
-          <Typography variant="h6">Payment Date</Typography>
-          <TextField size="small" sx={CustomerPaymentsStyles.input}></TextField>
-        </Box>
-        <Box component="div">
-          <Typography variant="h6">Payment Method</Typography>
-          <Select size="small" sx={CustomerPaymentsStyles.input}>
-            <MenuItem value="upi">UPI</MenuItem>
-            <MenuItem value="cheque">CHEQUE</MenuItem>
-          </Select>
-        </Box>
-        <Box component="div">
-          <Typography variant="h6">UPI ID/NUMBER</Typography>
-          <TextField size="small" sx={CustomerPaymentsStyles.input}></TextField>
-        </Box>
+      <Grid container spacing={1} sx={CustomerPaymentsStyles.addPackageForm}>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Amount"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker label="Payment Date" onChange={(newValue) => {}} />
+            </LocalizationProvider>
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+               Payment Method
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Payment Method"
+              >
+                <MenuItem value="Delux">UPI</MenuItem>
+                <MenuItem value="Economy">Cheque</MenuItem>
+                <MenuItem value="Economy">Cash</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="UPI ID / Number"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Account Number"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="IFSC CODE"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={1.6}>
+            <TextField
+              fullWidth
+              type="number"
+              label="Bank Name"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={0.7}>
+            <IconButton color="success" >
+              <AddCircleIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
 
-        <Box component="div">
-          <Typography variant="h6">Acount No.</Typography>
-          <TextField size="small" sx={CustomerPaymentsStyles.input}></TextField>
-        </Box>
-        <Box component="div">
-          <Typography variant="h6">IFSC Code.</Typography>
-          <TextField size="small" sx={CustomerPaymentsStyles.input}></TextField>
-        </Box>
-        <Box component="div" style={{ justifyContent: "center" }}>
-          <IconButton style={{ background: "green", color: "white" }}>
-            <AddIcon />
-          </IconButton>
-        </Box>
-      </Box>
+        <br />
 
-      <Box sx={CustomerPaymentsStyles.table}>
-        <table>
-          <thead>
-            <tr>
-              <th>Amount Paid</th>
-              <th>Payment Date</th>
-              <th>Payment Method</th>
-              <th>UPI/ID Number</th>
-              <th>Account Number</th>
-              <th>IFSC Code</th>
-              <th>Bank Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>5,000</td>
-              <td>10/11/2023</td>
-              <td>UPI</td>
-              <td>9145426603</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>15,000</td>
-              <td>12/11/2023</td>
-              <td>Net Banking</td>
-              <td></td>
-              <td>10018810123567</td>
-              <td>ICICI0023</td>
-              <td>ICICI Bank</td>
-            </tr>
-            <tr>
-              <td>30,000</td>
-              <td>15/11/2023</td>
-              <td>Cheque</td>
-              <td>143002344</td>
-              <td>10018810123009</td>
-              <td>SBII-00600</td>
-              <td>SBI Bank</td>
-            </tr>
-          </tbody>
-        </table>
-      </Box>
+      <DataGrid
+        keepNonExistentRowsSelected
+        sx={customerPaymentsStyles.root}
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        rowSelection={false}
+        pageSizeOptions={[5, 10]}
+      />
     </Box>
+  
   );
 };
 
