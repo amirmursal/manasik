@@ -1,9 +1,72 @@
 import React from "react";
 import PlanSubscriptionStyles from "./PlanSubscription.styles";
-import { Box, TextField, Divider, Grid, Typography } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
+import {
+  Box,
+  TextField,
+  Grid,
+  InputLabel,
+  Select,
+  Typography,
+  FormControl,
+  MenuItem,
+} from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import IconButton from "@mui/material/IconButton";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const PlanSubscription = () => {
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", width: 200 },
+    { field: "seatCount", headerName: "Seat Count", width: 200 },
+    { field: "days30", headerName: "30 Days", width: 200 },
+
+    {
+      field: "days90",
+      headerName: "90 Days",
+      width: 200,
+    },
+    {
+      field: "days180",
+      headerName: "180 Days",
+      width: 200,
+    },
+    {
+      field: "days360",
+      headerName: "360 Days",
+      width: 200,
+    },
+  ];
+
+  const rows = [
+    {
+      id: 1,
+      seatCount: "50",
+      days30: "10/11/23",
+      days90: "UPI",
+      days180: 9142456603,
+      days360: 10018227612987,
+    },
+    {
+      id: 2,
+      seatCount: "100",
+      days30: "10/11/23",
+      days90: "UPI",
+      days180: 9142456603,
+      days360: 10018227612987,
+    },
+    {
+      id: 3,
+      seatCount: "5000",
+      days30: "10/11/23",
+      days90: "UPI",
+      days180: 9142456603,
+      days360: 10018227612987,
+    },
+  ];
+
   return (
     <Box sx={PlanSubscriptionStyles.root}>
       <Typography
@@ -14,124 +77,84 @@ const PlanSubscription = () => {
         Current Subscription Plan
       </Typography>
 
-      <Box sx={PlanSubscriptionStyles.program}>
-        <Grid container columns={{ xs: 1, sm: 4, md: 14 }}>
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Plan Type</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Seat Count</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Cost</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Plan Start Date</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Plan End Date</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Seat Used</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
-
-          <Grid item xs={2} sx={PlanSubscriptionStyles.fair}>
-            <Typography variant="h6">Balance Seat</Typography>
-            <TextField type="number" size="small" />
-          </Grid>
+      <Grid container spacing={1} sx={PlanSubscriptionStyles.addPackageForm}>
+        <Grid item xs={12} sm={6} md={1.5}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Plan Type</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Plan Type"
+            >
+              <MenuItem value="Delux">30 Days</MenuItem>
+              <MenuItem value="Economy">90 Days</MenuItem>
+              <MenuItem value="Economy">180 Days</MenuItem>
+              <MenuItem value="Economy">360 Days</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
-      </Box>
-      <Box sx={PlanSubscriptionStyles.table}>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={PlanSubscriptionStyles.preSubHead}
-        >
-          Upgrade Subscription Plan
-        </Typography>
-        <table>
-          <thead>
-            <tr>
-              <th>Seat Count</th>
-              <th>30 Days</th>
-              <th>90 Days</th>
-              <th>180 Days</th>
-              <th>360 Days</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>50</td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                5000
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                10000
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                15000
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                22500
-              </td>
-            </tr>
-            <tr>
-              <td>100</td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                47500
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                15000
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                22500
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                33750
-              </td>
-            </tr>
-            <tr>
-              <td>5000</td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                16875
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                33750
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                50625
-              </td>
-              <td>
-                <Checkbox defaultChecked color="success" />
-                75938
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </Box>
-      <Divider sx={PlanSubscriptionStyles.divider} />
+
+        <Grid item xs={12} sm={6} md={1.5}>
+          <TextField
+            fullWidth
+            type="number"
+            label="Seat Count"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={1.5}>
+          <TextField fullWidth type="number" label="Cost" variant="outlined" />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={2}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker label="Plan Start Date" onChange={(newValue) => {}} />
+          </LocalizationProvider>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={2}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker label="Plant End Date" onChange={(newValue) => {}} />
+          </LocalizationProvider>
+        </Grid>
+        <Grid item xs={12} sm={6} md={1.5}>
+          <TextField
+            fullWidth
+            type="number"
+            label="Seat Used"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={1.5}>
+          <TextField
+            fullWidth
+            type="number"
+            label="Balance Seat"
+            variant="outlined"
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={0.5}>
+          <IconButton color="success">
+            <AddCircleIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
+      <br />
+
+      <DataGrid
+        keepNonExistentRowsSelected
+        sx={PlanSubscriptionStyles.root}
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        rowSelection={false}
+        pageSizeOptions={[5, 10]}
+      />
     </Box>
   );
 };
