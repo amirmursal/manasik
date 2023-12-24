@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import MyDashboard from "./components/Agent/MyDashboard";
 import CustomerPayments from "./components/Agent/CustomerPayments";
 import LoginLayout from "./components/LoginLayout";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LoginLayout />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
           <Route index element={<DefaultLayout />} />
         </Route>
         <Route path="/dashboard" element={<Layout />}>
