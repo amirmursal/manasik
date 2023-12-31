@@ -200,7 +200,7 @@ const ManageSubscription = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={1}>
             <IconButton color="success" onClick={handleAddButtonClick}>
-              <AddCircleIcon />
+              <AddCircleIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>
