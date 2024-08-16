@@ -26,7 +26,7 @@ type SignUpResponse = {
 export const signUpApi = createApi({
   reducerPath: "signUpApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://mahapuleayaz-001-site1.itempurl.com/api",
+    baseUrl: "https://ayazmm-001-site1.ktempurl.com/api",
   }),
   endpoints: (builder) => ({
     signUp: builder.mutation<SignUpResponse, UserDetails>({

@@ -18,7 +18,7 @@ type LoginResponse = {
 export const loginApi = createApi({
   reducerPath: "loginApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://mahapuleayaz-001-site1.itempurl.com/api",
+    baseUrl: "https://ayazmm-001-site1.ktempurl.com/api",
   }),
   endpoints: (builder) => ({
     login: builder.mutation<LoginResponse, Login>({
