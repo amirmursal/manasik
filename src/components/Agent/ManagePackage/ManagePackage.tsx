@@ -218,7 +218,7 @@ const ManagePackage = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <IconButton color="success" onClick={handleAddButtonClick}>
-              <AddCircleIcon />
+              <AddCircleIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>

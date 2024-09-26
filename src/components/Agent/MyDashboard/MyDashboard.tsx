@@ -20,7 +20,6 @@ const MyDashboard = () => {
     { field: "id", headerName: "ID", width: 60 },
     { field: "customerName", headerName: "Customer Name", width: 180 },
     { field: "package", headerName: "Package", width: 140 },
-
     {
       field: "bookingStatus",
       headerName: "Booking Status",
@@ -147,13 +146,11 @@ const MyDashboard = () => {
             </Select>
           </FormControl>
         </Grid>
-
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={2}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker label="Payment Date" onChange={(newValue) => {}} />
           </LocalizationProvider>
         </Grid>
-
         <Grid item xs={12} sm={6} md={3}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">
@@ -170,16 +167,13 @@ const MyDashboard = () => {
             </Select>
           </FormControl>
         </Grid>
-
         <Grid item xs={12} sm={6} md={3}>
           <IconButton color="success">
-            <AddCircleIcon />
+            <AddCircleIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>
-
       <br />
-
       <DataGrid
         keepNonExistentRowsSelected
         sx={MyDashboardStyles.root}
