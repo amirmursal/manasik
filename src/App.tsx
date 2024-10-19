@@ -26,21 +26,21 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LoginLayout />}>
           <Route path="/login" element={<Login />} />
-          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route index element={<DefaultLayout />} />
         </Route>
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<SearchPanel />} />
-          <Route path="addAgentDetails" element={<PersonalDetails />} />
-          <Route path="addProgram" element={<AddProgram />} />
-          <Route path="addAgentDocuments" element={<AgentDocumentation />} />
-          <Route path="managePackage" element={<ManagePackage />} />
-          <Route path="manageOffer" element={<ManageOffer />} />
-          <Route path="configurePackage" element={<ConfigurePackage />} />
-          <Route path="manageSubscription" element={<ManageSubscription />} />
-          <Route path="planSubscription" element={<PlanSubscription />} />
-          <Route path="myDashboard" element={<MyDashboard />} />
-          <Route path="customerPayments" element={<CustomerPayments />} />
+          <Route path="addagentdetails" element={<PersonalDetails />} />
+          <Route path="addorogram" element={<AddProgram />} />
+          <Route path="addagentdocuments" element={<AgentDocumentation />} />
+          <Route path="managepackage" element={<ManagePackage />} />
+          <Route path="manageoffer" element={<ManageOffer />} />
+          <Route path="configurepackage" element={<ConfigurePackage />} />
+          <Route path="managesubscription" element={<ManageSubscription />} />
+          <Route path="plansubscription" element={<PlanSubscription />} />
+          <Route path="mydashboard" element={<MyDashboard />} />
+          <Route path="customerpayments" element={<CustomerPayments />} />
         </Route>
       </Routes>
       <Footer />

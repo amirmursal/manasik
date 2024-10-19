@@ -18,12 +18,13 @@ type LoginResponse = {
 export const loginApi = createApi({
   reducerPath: "loginApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://ayazmm-001-site1.ktempurl.com/api",
+   // baseUrl: "https://ayazmm-001-site1.ktempurl.com/api",
+   baseUrl:"http://localhost:5000/"
   }),
   endpoints: (builder) => ({
     login: builder.mutation<LoginResponse, Login>({
       query: ({ username, password }) => ({
-        url: `Auth/login`,
+        url: `login`,
         method: "POST",
         body: { username, password },
       }),

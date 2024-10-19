@@ -1,17 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface UserState {
-  // email: string;
-  // firstname: string;
-  // lastname: string;
-  username: string;
+  firstName: string;
+  lastname: string;
+  role: string;
+  email: string;
+  isFirstTimeUser: boolean;
 }
 
 const initialState: UserState = {
-  // email: "",
-  // firstname: "",
-  // lastname: "",
-  username: "",
+  firstName: "",
+  lastname: "",
+  role: "",
+  email: "",
+  isFirstTimeUser: true
 };
 
 export const userSlice = createSlice({
@@ -23,7 +25,11 @@ export const userSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.username = action.payload.username;
+      state.firstName = action.payload.firstName;
+      state.lastname = action.payload.lastname;
+      state.role = action.payload.role;
+      state.email = action.payload.email;
+      state.isFirstTimeUser= action.payload.isFirstTimeUser;
     },
   },
 });

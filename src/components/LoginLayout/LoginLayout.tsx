@@ -7,7 +7,7 @@ const LoginLayout = () => {
   const user = useSelector((state: RootState) => state.user);
   const outlet = useOutlet();
 
-  if (user?.username?.length > 0) {
+  if (user?.role?.length > 0) {
     return <Navigate to="/dashboard" replace />;
   }
 

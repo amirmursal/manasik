@@ -15,6 +15,7 @@ import { useLoginMutation } from "../../services/login";
 import { setUser } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
 import { CircularProgress } from "@mui/material";
+import CryptoJS from "crypto-js";
 
 const Login = () => {
   const { login: hookLogin }: any = useAuth();
@@ -28,14 +29,22 @@ const Login = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setIsLoading(true);
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      password,
+      "secret-key"
+    ).toString();
+
     const { data, error: apiError }: any = await login({
       username: email,
-      password,
+      password: encryptedPassword,
     });
+
+    const { token, user } = data;
+    localStorage.setItem("token", token);
 
     if (!apiError) {
       hookLogin(data);
-      dispatch(setUser(data));
+      dispatch(setUser(user));
     }
     setError(true);
     setIsLoading(false);
@@ -105,7 +114,7 @@ const Login = () => {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/signUp" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

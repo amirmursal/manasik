@@ -86,7 +86,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const Layout = () => {
-  const { username } = useSelector((state: RootState) => state.user);
+  const { role, isFirstTimeUser } = useSelector(
+    (state: RootState) => state.user
+  );
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logout] = useLogoutMutation();
@@ -104,7 +106,7 @@ const Layout = () => {
     await logout(null);
   }, [dispatch, navigate, logout]);
 
-  if (username?.length === 0) {
+  if (role?.length === 0) {
     return <Navigate to="/" replace />;
   }
 
@@ -144,22 +146,11 @@ const Layout = () => {
         </Toolbar>
         <Divider />
         <List component="nav">
-          <Tooltip title="Dashboard">
-            <Link to="/dashboard" style={layoutStyles.linkText}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </Link>
-          </Tooltip>
-
-          {username === "admin" && (
+          {role === "agent" && (
             <>
               <Tooltip title="Add Tour Agency">
                 <Link
-                  to="/dashboard/addAgentDetails"
+                  to="/dashboard/addagentdetails"
                   style={layoutStyles.linkText}
                 >
                   <ListItemButton>
@@ -170,101 +161,124 @@ const Layout = () => {
                   </ListItemButton>
                 </Link>
               </Tooltip>
-              <Tooltip title="Manage Program">
-                <Link to="/dashboard/addProgram" style={layoutStyles.linkText}>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <PeopleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Program" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Manage Packages">
-                <Link
-                  to="/dashboard/managePackage"
-                  style={layoutStyles.linkText}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <FlightTakeoffIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Packages" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Manage Subscription">
-                <Link
-                  to="/dashboard/manageSubscription"
-                  style={layoutStyles.linkText}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <CardMembershipIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Subscription" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Plan Subscription">
-                <Link
-                  to="/dashboard/planSubscription"
-                  style={layoutStyles.linkText}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <LoyaltyIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Plan Subscription" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Manage Offer">
-                <Link to="/dashboard/manageOffer" style={layoutStyles.linkText}>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <LocalOfferIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Offer" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Configure Package">
-                <Link
-                  to="/dashboard/configurePackage"
-                  style={layoutStyles.linkText}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <CheckBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Configure Package" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="My Dashboard">
-                <Link to="/dashboard/myDashboard" style={layoutStyles.linkText}>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <DashboardCustomizeIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Dashboard" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
-              <Tooltip title="Customer Payments">
-                <Link
-                  to="/dashboard/customerPayments"
-                  style={layoutStyles.linkText}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <PaymentsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Customer Payments" />
-                  </ListItemButton>
-                </Link>
-              </Tooltip>
+              {isFirstTimeUser && (
+                <>
+                  <Tooltip title="Dashboard">
+                    <Link to="/dashboard" style={layoutStyles.linkText}>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <DashboardIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Dashboard" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Manage Program">
+                    <Link
+                      to="/dashboard/addProgram"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <PeopleIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Manage Program" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Manage Packages">
+                    <Link
+                      to="/dashboard/managePackage"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <FlightTakeoffIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Manage Packages" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Manage Subscription">
+                    <Link
+                      to="/dashboard/manageSubscription"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <CardMembershipIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Manage Subscription" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Plan Subscription">
+                    <Link
+                      to="/dashboard/planSubscription"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <LoyaltyIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Plan Subscription" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Manage Offer">
+                    <Link
+                      to="/dashboard/manageOffer"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <LocalOfferIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Manage Offer" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Configure Package">
+                    <Link
+                      to="/dashboard/configurePackage"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <CheckBoxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Configure Package" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="My Dashboard">
+                    <Link
+                      to="/dashboard/myDashboard"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <DashboardCustomizeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="My Dashboard" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip title="Customer Payments">
+                    <Link
+                      to="/dashboard/customerPayments"
+                      style={layoutStyles.linkText}
+                    >
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <PaymentsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Customer Payments" />
+                      </ListItemButton>
+                    </Link>
+                  </Tooltip>
+                </>
+              )}
             </>
           )}
           <Tooltip title="Logout">
