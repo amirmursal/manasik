@@ -1,6 +1,5 @@
 import React from "react";
 import SearchPanel from "./components/SearchPanel";
-import PersonalDetails from "./components/Agent/PersonalDetails";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import AddProgram from "./components/Agent/AddProgram";
@@ -19,6 +18,10 @@ import MyDashboard from "./components/Agent/MyDashboard";
 import CustomerPayments from "./components/Agent/CustomerPayments";
 import LoginLayout from "./components/LoginLayout";
 import SignUp from "./components/SignUp";
+import AgencyDetails from "./components/Agent/AgencyDetails/AgencyDetails";
+import AgencyLocation from "./components/Agent/AgencyLocation/AgencyLocation";
+import AgencyBank from "./components/Agent/AgencyBank/AgencyBank";
+import AgencyDocuments from "./components/Agent/AgencyDocuments/AgencyDocuments";
 
 const App = () => {
   return (
@@ -31,7 +34,10 @@ const App = () => {
         </Route>
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<SearchPanel />} />
-          <Route path="addagentdetails" element={<PersonalDetails />} />
+          <Route path="agencydetails" element={<AgencyDetails />} />
+          <Route path="agencylocation" element={<AgencyLocation />} />
+          <Route path="agencybank" element={<AgencyBank />} />
+          <Route path="agencydocuments" element={<AgencyDocuments />} />
           <Route path="addorogram" element={<AddProgram />} />
           <Route path="addagentdocuments" element={<AgentDocumentation />} />
           <Route path="managepackage" element={<ManagePackage />} />

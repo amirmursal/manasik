@@ -5,7 +5,7 @@ export interface UserState {
   lastname: string;
   role: string;
   email: string;
-  isFirstTimeUser: boolean;
+  agentStatus: string;
 }
 
 const initialState: UserState = {
@@ -13,7 +13,7 @@ const initialState: UserState = {
   lastname: "",
   role: "",
   email: "",
-  isFirstTimeUser: true
+  agentStatus: ""
 };
 
 export const userSlice = createSlice({
@@ -29,7 +29,7 @@ export const userSlice = createSlice({
       state.lastname = action.payload.lastname;
       state.role = action.payload.role;
       state.email = action.payload.email;
-      state.isFirstTimeUser= action.payload.isFirstTimeUser;
+      state.agentStatus= action.payload.agentStatus;
     },
   },
 });

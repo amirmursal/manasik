@@ -38,6 +38,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useLogoutMutation } from "../../services/login";
 import { setUser } from "../../slices/userSlice";
+import {
+  AccountBalance,
+  AddLocation,
+  DocumentScanner,
+} from "@mui/icons-material";
 
 const drawerWidth: number = 240;
 
@@ -86,9 +91,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const Layout = () => {
-  const { role, isFirstTimeUser } = useSelector(
-    (state: RootState) => state.user
-  );
+  const { role } = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logout] = useLogoutMutation();
@@ -150,7 +153,7 @@ const Layout = () => {
             <>
               <Tooltip title="Add Tour Agency">
                 <Link
-                  to="/dashboard/addagentdetails"
+                  to="/dashboard/agencydetails"
                   style={layoutStyles.linkText}
                 >
                   <ListItemButton>
@@ -161,7 +164,43 @@ const Layout = () => {
                   </ListItemButton>
                 </Link>
               </Tooltip>
-              {isFirstTimeUser && (
+              <Tooltip title="Locations">
+                <Link
+                  to="/dashboard/agencylocation"
+                  style={layoutStyles.linkText}
+                >
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <AddLocation />
+                    </ListItemIcon>
+                    <ListItemText primary="Locations" />
+                  </ListItemButton>
+                </Link>
+              </Tooltip>
+              <Tooltip title="Bank Details">
+                <Link to="/dashboard/agencybank" style={layoutStyles.linkText}>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <AccountBalance />
+                    </ListItemIcon>
+                    <ListItemText primary="Bank Details" />
+                  </ListItemButton>
+                </Link>
+              </Tooltip>
+              <Tooltip title="Documents">
+                <Link
+                  to="/dashboard/agencydocuments"
+                  style={layoutStyles.linkText}
+                >
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <DocumentScanner />
+                    </ListItemIcon>
+                    <ListItemText primary="Documents" />
+                  </ListItemButton>
+                </Link>
+              </Tooltip>
+              {false && (
                 <>
                   <Tooltip title="Dashboard">
                     <Link to="/dashboard" style={layoutStyles.linkText}>

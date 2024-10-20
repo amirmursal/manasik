@@ -20,7 +20,7 @@ const users = [
     password: bcrypt.hashSync("mursal", 10),
     role: "agent",
     email: "amir@manasik.com",
-    agnetStatus: "inprogress",
+    agentStatus: "inprogress",
   },
 ];
 
