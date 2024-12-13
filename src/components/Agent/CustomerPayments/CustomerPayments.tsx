@@ -149,7 +149,7 @@ const CustomerPayments = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={0.7}>
           <IconButton color="success">
-            <AddCircleIcon />
+            <AddCircleIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>

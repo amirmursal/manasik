@@ -180,7 +180,7 @@ const AddProgram = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <IconButton color="primary" onClick={handleAddButtonClick}>
-              <AddCircleIcon />
+              <AddCircleIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>

@@ -69,14 +69,6 @@ const PlanSubscription = () => {
 
   return (
     <Box sx={PlanSubscriptionStyles.root}>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={PlanSubscriptionStyles.preSubHead}
-      >
-        Current Subscription Plan
-      </Typography>
-
       <Grid container spacing={1} sx={PlanSubscriptionStyles.addPackageForm}>
         <Grid item xs={12} sm={6} md={1.5}>
           <FormControl fullWidth>
@@ -136,7 +128,7 @@ const PlanSubscription = () => {
 
         <Grid item xs={12} sm={6} md={0.5}>
           <IconButton color="success">
-            <AddCircleIcon />
+            <AddCircleIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>

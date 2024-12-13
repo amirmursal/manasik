@@ -1,5 +1,4 @@
 const myDashboardStyles = {
-
     root: {
       "& .MuiDataGrid-columnHeader": {
         color: "#fff",
@@ -14,11 +13,6 @@ const myDashboardStyles = {
       "& .MuiSvgIcon-root": {
         //color: "#fff",
       },
-    },
-    addPackageButton: {
-      display: "flex",
-      justifyContent: "space-between",
-      height: "40px",
     },
     addPackageForm: {
       display: "flex",
