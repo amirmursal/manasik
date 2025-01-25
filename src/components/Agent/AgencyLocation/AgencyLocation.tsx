@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import {
   TextField,
   Grid,
@@ -6,7 +6,10 @@ import {
   Button,
   Container,
   Paper,
+  Snackbar,
+  Alert,
 } from "@mui/material";
+import { useAddAgencyLocationMutation } from "../../../services/agency";
 
 const AgencyLocation = () => {
   const [branchName, setBranchName] = useState<string>("");
@@ -17,10 +20,52 @@ const AgencyLocation = () => {
   const [branchState, setBranchState] = useState<string>("");
   const [branchCountry, setBranchCountry] = useState<string>("");
   const [branchPincode, setBranchPincode] = useState<string>("");
+  const [addAgencyLocation] = useAddAgencyLocationMutation();
+  const [showMessageBar, setShowMessageBar] = useState<boolean>(false);
 
-  const handleSubmit = useCallback(() => {
-    // call api to save location deatils for agency
+  const reset = useCallback(() => {
+    setBranchName("");
+    setBranchContactNumber("");
+    setBranchEmail("");
+    setBranchAddress("");
+    setBranchCity("");
+    setBranchState("");
+    setBranchCountry("");
+    setBranchPincode("");
   }, []);
+
+  const handleSubmit = useCallback(async () => {
+    const branchLocation = {
+      branchName,
+      contactNum: branchContactNumber,
+      emailId: branchEmail,
+      address: branchAddress,
+      city: branchCity,
+      state: branchState,
+      country: branchCountry,
+      pinCode: branchPincode,
+    };
+    const { data }: any = await addAgencyLocation({
+      location: branchLocation,
+      agencyId: 1,
+    });
+
+    if (data) {
+      setShowMessageBar(true);
+      reset();
+    }
+  }, [
+    addAgencyLocation,
+    branchAddress,
+    branchCity,
+    branchContactNumber,
+    branchCountry,
+    branchEmail,
+    branchName,
+    branchPincode,
+    branchState,
+    reset,
+  ]);
 
   const handleBranchNameChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -75,6 +120,32 @@ const AgencyLocation = () => {
       setBranchPincode(event.target.value);
     },
     []
+  );
+
+  const handleClose = useCallback(() => {
+    setShowMessageBar(false);
+  }, []);
+
+  const isDisable = useMemo(
+    () =>
+      !branchName ||
+      !branchContactNumber ||
+      !branchEmail ||
+      !branchAddress ||
+      !branchCity ||
+      !branchState ||
+      !branchCountry ||
+      !branchPincode,
+    [
+      branchAddress,
+      branchCity,
+      branchContactNumber,
+      branchCountry,
+      branchEmail,
+      branchName,
+      branchPincode,
+      branchState,
+    ]
   );
 
   return (
@@ -186,12 +257,21 @@ const AgencyLocation = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Button variant="contained" onClick={handleSubmit}>
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={isDisable}
+            >
               Submit
             </Button>
           </Grid>
         </Grid>
       </Paper>
+      <Snackbar open={showMessageBar}>
+        <Alert onClose={handleClose} severity="success" variant="filled">
+          Agency location added successfully
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };

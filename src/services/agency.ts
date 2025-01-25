@@ -9,6 +9,19 @@ type Agency = {
   ownerAadhar: string | undefined;
 };
 
+type AgencyLocation = {
+  branchName: string | undefined;
+  contactNum: string | undefined;
+  emailId: string | undefined;
+  address: string | undefined;
+  city: string | undefined;
+  state: string | undefined;
+  country: string | undefined;
+  pinCode: string | undefined;
+};
+
+type AgencyId = number;
+
 // Define a service using a base URL and expected endpoints
 export const agencyApi = createApi({
   reducerPath: "agencyApi",
@@ -22,12 +35,22 @@ export const agencyApi = createApi({
         method: "POST",
         body: agency,
       }),
-      // Pick out data and prevent nested properties in a hook or selector
+
+      transformResponse: (response: any) => response,
+    }),
+    addAgencyLocation: builder.mutation<
+      any,
+      { location: AgencyLocation; agencyId: AgencyId }
+    >({
+      query: ({ location, agencyId }) => ({
+        url: `api/agency/locations/${agencyId}/addLocation`,
+        method: "POST",
+        body: location,
+      }),
       transformResponse: (response: any) => response,
     }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useAddAgencyMutation } = agencyApi;
+// Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
+export const { useAddAgencyMutation, useAddAgencyLocationMutation } = agencyApi;
