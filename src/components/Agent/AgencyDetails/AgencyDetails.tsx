@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import {
   TextField,
   Grid,
@@ -6,20 +6,77 @@ import {
   Button,
   Container,
   Paper,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 
-const AgencyDetails = () => {
-  const [agencyName, setAgencyName] = useState<string>("");
-  const [mobileNumber, setMobileNumber] = useState<string>("");
-  const [alternteMobileNumber, setAlternateMobileNumber] = useState<string>("");
-  const [agencyPan, setAgencyPan] = useState<string>("");
-  const [agencyGST, setAgencyGST] = useState<string>("");
-  const [ownerAadhar, setOwnerAadhar] = useState<string>("");
-  const [msme, setMSME] = useState<string>("");
+import { useAddAgencyMutation } from "../../../services/agency";
 
-  const handleSubmit = useCallback(() => {
-    // call api to save basic deatils for agency
+const AgencyDetails = () => {
+  const [agencyName, setAgencyName] = useState<string | undefined>(undefined);
+  const [mobileNumber, setMobileNumber] = useState<string | undefined>(
+    undefined
+  );
+  const [alternteMobileNumber, setAlternateMobileNumber] = useState<
+    string | undefined
+  >(undefined);
+  const [agencyPan, setAgencyPan] = useState<string | undefined>(undefined);
+  const [agencyGST, setAgencyGST] = useState<string | undefined>(undefined);
+  const [ownerAadhar, setOwnerAadhar] = useState<string | undefined>(undefined);
+  const [showMessageBar, setShowMessageBar] = useState<boolean>(false);
+  const [addAgency] = useAddAgencyMutation();
+
+  const reset = useCallback(() => {
+    setAgencyName("");
+    setMobileNumber("");
+    setAlternateMobileNumber("");
+    setAgencyPan("");
+    setAgencyGST("");
+    setOwnerAadhar("");
   }, []);
+
+  const handleSubmit = useCallback(async () => {
+    const agency = {
+      agencyName,
+      mobileNum: mobileNumber,
+      alternateNum: alternteMobileNumber,
+      agencyPan,
+      agencyGstn: agencyGST,
+      ownerAadhar,
+    };
+    const { data }: any = await addAgency(agency);
+    if (data) {
+      setShowMessageBar(true);
+      reset();
+    }
+  }, [
+    addAgency,
+    agencyGST,
+    agencyName,
+    agencyPan,
+    alternteMobileNumber,
+    mobileNumber,
+    ownerAadhar,
+    reset,
+  ]);
+
+  const isDisable = useMemo(
+    () =>
+      !agencyName ||
+      !mobileNumber ||
+      !alternteMobileNumber ||
+      !agencyPan ||
+      !agencyGST ||
+      !ownerAadhar,
+    [
+      agencyGST,
+      agencyName,
+      agencyPan,
+      alternteMobileNumber,
+      mobileNumber,
+      ownerAadhar,
+    ]
+  );
 
   const handleAgencyNameChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -63,12 +120,9 @@ const AgencyDetails = () => {
     []
   );
 
-  const handleMSMEChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setMSME(event.target.value);
-    },
-    []
-  );
+  const handleClose = useCallback(() => {
+    setShowMessageBar(false);
+  }, []);
 
   return (
     <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
@@ -142,7 +196,7 @@ const AgencyDetails = () => {
               variant="standard"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12}>
             <TextField
               required
               onChange={handleOwnerAadharChange}
@@ -155,24 +209,21 @@ const AgencyDetails = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              onChange={handleMSMEChange}
-              value={msme}
-              required
-              id="msme"
-              name="msme"
-              label="MSME"
-              fullWidth
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Button variant="contained" onClick={handleSubmit}>
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={isDisable}
+            >
               Submit
             </Button>
           </Grid>
         </Grid>
       </Paper>
+      <Snackbar open={showMessageBar}>
+        <Alert onClose={handleClose} severity="success" variant="filled">
+          Agency Added successfully
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };
