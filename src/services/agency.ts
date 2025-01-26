@@ -20,7 +20,16 @@ type AgencyLocation = {
   pinCode: string | undefined;
 };
 
+type AgencyBank = {
+  bankName: string;
+  accountNumber: string;
+  beneficiaryName: string;
+  accountType: string;
+  ifsCode: string;
+};
+
 type AgencyId = number;
+type LocationId = number;
 
 // Define a service using a base URL and expected endpoints
 export const agencyApi = createApi({
@@ -49,8 +58,23 @@ export const agencyApi = createApi({
       }),
       transformResponse: (response: any) => response,
     }),
+    addAgencyBank: builder.mutation<
+      any,
+      { agencyBank: AgencyBank; agencyId: AgencyId; locationId: LocationId }
+    >({
+      query: ({ agencyBank, agencyId, locationId }) => ({
+        url: `api/agency/banks/${agencyId}/${locationId}/addBank`,
+        method: "POST",
+        body: agencyBank,
+      }),
+      transformResponse: (response: any) => response,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
-export const { useAddAgencyMutation, useAddAgencyLocationMutation } = agencyApi;
+export const {
+  useAddAgencyMutation,
+  useAddAgencyLocationMutation,
+  useAddAgencyBankMutation,
+} = agencyApi;

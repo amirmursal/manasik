@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import {
   TextField,
   Grid,
@@ -6,12 +6,10 @@ import {
   Button,
   Container,
   Paper,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
+  Snackbar,
+  Alert,
 } from "@mui/material";
+import { useAddAgencyBankMutation } from "../../../services/agency";
 
 const AgencyBank = () => {
   const [bankName, setBankName] = useState<string>("");
@@ -19,11 +17,43 @@ const AgencyBank = () => {
   const [beneficiaryName, setBeneficiaryName] = useState<string>("");
   const [accountType, setAccountType] = useState<string>("");
   const [ifscCode, setIfscCode] = useState<string>("");
-  const [branchLocation, setBranchLocation] = useState<string>("");
+  const [showMessageBar, setShowMessageBar] = useState<boolean>(false);
+  const [addAgencyBank] = useAddAgencyBankMutation();
 
-  const handleSubmit = useCallback(() => {
-    // call api to save basic deatils for agency
+  const reset = useCallback(() => {
+    setBankName("");
+    setAccountNumber("");
+    setBeneficiaryName("");
+    setAccountType("");
+    setIfscCode("");
   }, []);
+
+  const handleSubmit = useCallback(async () => {
+    const agencyBank = {
+      bankName,
+      accountNumber,
+      beneficiaryName,
+      accountType,
+      ifsCode: ifscCode,
+    };
+    const { data }: any = await addAgencyBank({
+      agencyBank,
+      agencyId: 15,
+      locationId: 4,
+    });
+    if (data) {
+      setShowMessageBar(true);
+      reset();
+    }
+  }, [
+    accountNumber,
+    accountType,
+    addAgencyBank,
+    bankName,
+    beneficiaryName,
+    ifscCode,
+    reset,
+  ]);
 
   const handleBankNameChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -60,9 +90,19 @@ const AgencyBank = () => {
     []
   );
 
-  const handleBranchLocationChange = useCallback((event: SelectChangeEvent) => {
-    setBranchLocation(event.target.value);
+  const handleClose = useCallback(() => {
+    setShowMessageBar(false);
   }, []);
+
+  const isDisable = useMemo(
+    () =>
+      !bankName ||
+      !accountNumber ||
+      !beneficiaryName ||
+      !accountType ||
+      !ifscCode,
+    [accountNumber, accountType, bankName, beneficiaryName, ifscCode]
+  );
 
   return (
     <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
@@ -73,93 +113,85 @@ const AgencyBank = () => {
         <Typography variant="h6" gutterBottom>
           Agency Bank Details
         </Typography>
-        <FormControl variant="standard" sx={{ minWidth: 200 }}>
-          <InputLabel id="demo-simple-select-standard-label">
-            Branch Location
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={branchLocation}
-            onChange={handleBranchLocationChange}
-            label="Document Type"
-            fullWidth
-          >
-            <MenuItem value="pune">Pune</MenuItem>
-            <MenuItem value="pimpari">Pimpari</MenuItem>
-          </Select>
-        </FormControl>
-        {branchLocation && (
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextField
-                onChange={handleBankNameChange}
-                required
-                id="bankName"
-                name="bankName"
-                label="Bank Name"
-                fullWidth
-                value={bankName}
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                onChange={handleAccountNumberChange}
-                id="accountNumber"
-                name="accountNumber"
-                label="Account Number"
-                fullWidth
-                value={accountNumber}
-                type="number"
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                onChange={handleBeneficiaryNameChange}
-                value={beneficiaryName}
-                id="beneficiaryName"
-                name="beneficiaryName"
-                label="Beneficiary Name"
-                fullWidth
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                onChange={handleAccountTypeChange}
-                value={accountType}
-                id="accountType"
-                name="accountType"
-                label="Account Type"
-                fullWidth
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                onChange={handleIfscCodeChange}
-                value={ifscCode}
-                id="ifscCode"
-                name="ifscCode"
-                label="IFSC Code"
-                fullWidth
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Button variant="contained" onClick={handleSubmit}>
-                Submit
-              </Button>
-            </Grid>
+
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <TextField
+              onChange={handleBankNameChange}
+              required
+              id="bankName"
+              name="bankName"
+              label="Bank Name"
+              fullWidth
+              value={bankName}
+              variant="standard"
+            />
           </Grid>
-        )}
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              onChange={handleAccountNumberChange}
+              id="accountNumber"
+              name="accountNumber"
+              label="Account Number"
+              fullWidth
+              value={accountNumber}
+              type="number"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              onChange={handleBeneficiaryNameChange}
+              value={beneficiaryName}
+              id="beneficiaryName"
+              name="beneficiaryName"
+              label="Beneficiary Name"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              onChange={handleAccountTypeChange}
+              value={accountType}
+              id="accountType"
+              name="accountType"
+              label="Account Type"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              onChange={handleIfscCodeChange}
+              value={ifscCode}
+              id="ifscCode"
+              name="ifscCode"
+              label="IFSC Code"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={isDisable}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
       </Paper>
+      <Snackbar open={showMessageBar}>
+        <Alert onClose={handleClose} severity="success" variant="filled">
+          Agency bank added successfully
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };
